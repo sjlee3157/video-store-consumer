@@ -38,12 +38,10 @@ Each pair/group will give a short presentation on their project and their learni
   - Fork this repository
   - Add the pair as a collaborator on the project
   - Clone the repository
-  - Use `create-react-app` to generate React scaffolding
-  - Commit and push the generated files
 - The other partner shall then:
   - Clone the repository (without forking)
-  - Install dependencies using `$npm install`
 - Both partners shall then
+  - Install dependencies using `npm install`
   - Start the development server using `npm start`
   - Start the test watcher using `npm test`
 
