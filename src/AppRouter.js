@@ -2,8 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import LibraryPage from "./components/LibraryPage"
 import HomePage from "./components/HomePage"
-import CustomersPage from "./component/CustomersPage"
-import SearchBar from "./component/SearchBar"
+import CustomersPage from "./components/CustomersPage"
+import SearchBar from "./components/SearchBar"
 
 const AppRouter = () => (
   <Router>
