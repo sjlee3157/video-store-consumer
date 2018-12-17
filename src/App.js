@@ -7,9 +7,8 @@ class App extends Component {
     return (
 
       <div>
-        <header className="App-header">
-          <AppRouter />
-        </header>
+        <AppRouter />
+
       </div>
     );
   }

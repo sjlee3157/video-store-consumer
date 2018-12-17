@@ -1,10 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
-const Home = () => <h2>Home</h2>;
-const Search = () => <h2>Search Movies</h2>;
-const Library = () => <h2>Movie Library</h2>;
-const Customers = () => <h2>Customers</h2>;
+import LibraryPage from "./components/LibraryPage"
+import HomePage from "./components/HomePage"
+import CustomersPage from "./component/CustomersPage"
+import SearchBar from "./component/SearchBar"
 
 const AppRouter = () => (
   <Router>
@@ -26,10 +25,10 @@ const AppRouter = () => (
         </ul>
       </nav>
 
-      <Route path="/" exact component={Home} />
-      <Route path="/search/" component={Search} />
-      <Route path="/library/" component={Library} />
-      <Route path="/customers/" component={Customers} />
+      <Route path="/" exact component={HomePage} />
+      <Route path="/search/" component={SearchBar} />
+      <Route path="/library/" component={LibraryPage} />
+      <Route path="/customers/" component={CustomersPage} />
     </div>
   </Router>
 );

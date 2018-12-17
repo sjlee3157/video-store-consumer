@@ -1,3 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './style/Customers.css';
+
+
+export default CustomersPage;
