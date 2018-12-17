@@ -4,6 +4,8 @@ In this project, you'll take a lot of the knowledge you have so far and create a
 
 This is a [Phase 3](https://github.com/Ada-Developers-Academy/pedagogy/blob/master/rule-of-three.md) Pair project.
 
+Due: EOD Friday December 21st, 2018
+
 ## Learning Goals
 
 - Use React to build a dynamic and attractive user interface
