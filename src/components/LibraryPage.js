@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
-
+import PropTypes from 'prop-types';
+import './styles/LibraryPage.css';
 
 class LibraryPage extends Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class LibraryPage extends Component {
 
   render() {
     console.log("Rendering!")
-    return <h1> Movies! </h1>
+    return <h1> Library Page! </h1>
   }
 }
 

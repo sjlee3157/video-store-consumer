@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './styles/Home.css';
+import './styles/HomePage.css';
 
 
 const HomePage = () => {
-  return <h1> Home </h1>
+  return <h1> this is the Home Page </h1>
 }
 
 export default HomePage;

@@ -1,9 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import LibraryPage from "./components/LibraryPage"
+
 import HomePage from "./components/HomePage"
+import SearchPage from "./components/SearchPage"
+import LibraryPage from "./components/LibraryPage"
 import CustomersPage from "./components/CustomersPage"
+
 import SearchBar from "./components/SearchBar"
+import CheckOut from './components/CheckOut'
 
 const AppRouter = () => (
   <Router>
@@ -22,11 +26,17 @@ const AppRouter = () => (
           <li>
             <Link to="/customers/">Customers</Link>
           </li>
+          <li>
+            <SearchBar />
+          </li>
+          <li>
+            <CheckOut />
+          </li>
         </ul>
       </nav>
 
       <Route path="/" exact component={HomePage} />
-      <Route path="/search/" component={SearchBar} />
+      <Route path="/search/" component={SearchPage} />
       <Route path="/library/" component={LibraryPage} />
       <Route path="/customers/" component={CustomersPage} />
     </div>
