@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import './styles/LibraryList.css';
 
 import Movie from "./Movie"
@@ -58,9 +57,9 @@ class LibraryList extends Component {
         })
         .catch((error) => {
           console.log(error.message);
-          // this.setState({
-          //   errorMessage: error.message,
-          // });
+          this.setState({
+            errorMessage: error.message,
+          });
         });
     }
 }

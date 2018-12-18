@@ -33,7 +33,8 @@ class SearchList extends Component {
                 releaseDate={movie.release_date}
                 title={movie.title}
               />
-              <AddToLibrary {...movie} />
+              <AddToLibrary {...movie}
+                inventory={5} />
             </section>
 
           )
