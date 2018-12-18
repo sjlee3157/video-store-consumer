@@ -1,36 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import moment from 'moment';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import './styles/CheckOutForm.css';
 
 
-class CheckOutForm extends Component {
-  constructor(props) {
-    super(props);
+const CheckOutForm = (props) => {
 
-    this.state = {
-      selectedMovie: {},
-      selectedCustomer: {}
-    }
-  }
-
-  onSubmitHandler = (e) => {
+  const onSubmitHandler = (e) => {
     e.preventDefault();
 
-    if (this.state.selectedMovie.title && this.state.selectedCustomer.id ) {
-      this.rentMovie();
-      this.resetState();
+    if (props.selectedMovie.title && props.selectedCustomer.id ) {
+      rentMovie();
+      props.resetCheckOutFormCallback();
     } else {
       console.log('did not submit. both fields must be filled out');
     }
   }
 
-  rentMovie = () => {
+  const rentMovie = () => {
     console.log('renting movie (POST request)');
+
     // SJL: Defaulting due date to 7 days from today
     const dueDate = moment().add(7, 'days').format("MMM DD YYYY");
-    const { selectedMovie, selectedCustomer } = this.state;
+    const { selectedMovie, selectedCustomer } = props;
     const title = selectedMovie.title
     const params = {
       customer_id: selectedCustomer.id,
@@ -48,45 +41,26 @@ class CheckOutForm extends Component {
       })
   }
 
-  resetState = () => {
-    this.setState({
-      selectedMovie: {},
-      selectedCustomer: {}
-    })
-  }
+  return (
+    <section>
+      <form onSubmit={ onSubmitHandler }>
+        <label htmlFor="selectedMovie">{ props.selectedMovie.title }</label>
+        <input type="hidden" name="selectedMovie" value={ props.selectedMovie } />
 
-  render() {
-    console.log('rendering checkout form')
-    return (
-      <section>
-        <form onSubmit={ this.onSubmitHandler }>
-          <label htmlFor="selectedMovie">{ this.state.selectedMovie.title }</label>
-            <input type="hidden" name="selectedMovie" value={ this.state.selectedMovie } />
-          <label htmlFor="selectedCustomer">{ this.state.selectedCustomer.name }</label>
-            <input type="hidden" name="selectedCustomer" value={ this.state.selectedCustomer } />
-          <input type="submit" name="submit" value="Check Out This Movie" />
-        </form>
-      </section>
-    )
-  }
+        <label htmlFor="selectedCustomer">{ props.selectedCustomer.name }</label>
+        <input type="hidden" name="selectedCustomer" value={ props.selectedCustomer } />
 
-  componentDidUpdate(prevProps) {
-    console.log('updating check out form');
-    const selectedMovie = this.props.selectedMovie;
-    const selectedCustomer = this.props.selectedCustomer;
-    if (selectedMovie !== prevProps.selectedMovie) {
-      console.log(selectedMovie);
-      this.setState( { selectedMovie });
-    }
-    if (selectedCustomer !== prevProps.selectedCustomer) {
-      this.setState( { selectedCustomer });
-    }
-  }
+        <input type="submit" name="submit" value="Check Out This Movie" />
+      </form>
+    </section>
+  )
+
 }
 
 CheckOutForm.propTypes = {
   selectedMovie: PropTypes.object,
-  selectedCustomer: PropTypes.object
+  selectedCustomer: PropTypes.object,
+  resetCheckOutFormCallback: PropTypes.func
 }
 
 export default CheckOutForm;
