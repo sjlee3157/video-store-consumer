@@ -8,11 +8,12 @@ import SelectButton from './SelectButton';
 
 const MovieCard = (props) => {
 
-  const movie = props.movie;
+  const { movie } = props;
 
   return (
     <section>
       <SelectButton
+        buttonType={ 'selectMovie' }
         movie={ movie }
         selectMovieCallback={ props.selectMovieCallback }/>
       <Movie

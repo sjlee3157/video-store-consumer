@@ -5,18 +5,34 @@ import './styles/SelectButton.css';
 
 const SelectButton = (props) => {
 
+  const label = ( props.movie ? props.movie.title : props.customer.name )
+
+  const selectMovieButton = (
+    <button onClick={ () => props.selectMovieCallback(props.movie) }>
+      Select { label }
+    </button>
+  )
+
+  const selectCustomerButton = (
+    <button onClick={ () => props.selectCustomerCallback(props.customer) }>
+      Select { label }
+    </button>
+  )
+
   return (
     <section>
-      <button onClick={ () => props.selectMovieCallback(props.movie) }>
-        Select { props.movie.title }
-      </button>
+    { props.buttonType === "selectMovie" && selectMovieButton }
+    { props.buttonType === "selectCustomer" && selectCustomerButton }
     </section>
   )
 }
 
 SelectButton.propTypes = {
-  movie: PropTypes.object.isRequired,
-  selectMovieCallback: PropTypes.func
+  buttonType: PropTypes.string.isRequired,
+  movie: PropTypes.object,
+  customer: PropTypes.object,
+  selectMovieCallback: PropTypes.func,
+  selectCustomerCallback: PropTypes.func
 }
 
 export default SelectButton;

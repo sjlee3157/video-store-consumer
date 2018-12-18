@@ -34,6 +34,10 @@ class AppRouter extends Component {
     this.setState({ selectedMovie })
   }
 
+  selectCustomer = (selectedCustomer) => {
+    this.setState({ selectedCustomer })
+  }
+
   renderAlert = (message) => {
     this.setState({alert: message})
   }
@@ -53,7 +57,11 @@ class AppRouter extends Component {
               selectMovieCallback={ this.selectMovie }
             />
           } />
-          <Route path="/customers/" component={ CustomersPage } />
+          <Route path="/customers/" component={ props =>
+            <CustomersPage { ...props }
+              selectCustomerCallback={ this.selectCustomer }
+            />
+          } />
         </section>
     )
 
