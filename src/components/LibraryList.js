@@ -23,8 +23,8 @@ class LibraryList extends Component {
             return (
               <Movie
                 key={i}
-                externalId={movie.external_id}
-                id={movie.id}
+                externalId={parseInt(movie.external_id, 10)}
+                id={parseInt(movie.id, 10)}
                 imageUrl ={movie.image_url}
                 overview={movie.overview}
                 releaseDate={movie.release_date}
@@ -45,11 +45,9 @@ class LibraryList extends Component {
       axios.get(URL)
         .then((response) => {
           const movieSet = response.data.map((movie) => {
-            console.log(movie)
             const newMovie = {
               ...movie,
             };
-            console.log(newMovie)
             return newMovie;
           })
 
@@ -60,9 +58,9 @@ class LibraryList extends Component {
         })
         .catch((error) => {
           console.log(error.message);
-          this.setState({
-            errorMessage: error.message,
-          });
+          // this.setState({
+          //   errorMessage: error.message,
+          // });
         });
     }
 }

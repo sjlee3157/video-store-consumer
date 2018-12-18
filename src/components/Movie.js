@@ -15,8 +15,8 @@ const Movie = (props) => {
 }
 
 Movie.propTypes = {
-  id: PropTypes.string,
-  externalId: PropTypes.string,
+  id: PropTypes.number,
+  externalId: PropTypes.number,
   overview: PropTypes.string,
   imageUrl: PropTypes.string,
   title: PropTypes.string,
