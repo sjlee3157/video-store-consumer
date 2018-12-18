@@ -18,7 +18,7 @@ class CheckOutForm extends Component {
   onSubmitHandler = (e) => {
     e.preventDefault();
 
-    if (this.state.selectedMovie !== {} && this.state.selectedCustomer !== {}) {
+    if (this.state.selectedMovie.title && this.state.selectedCustomer.id ) {
       this.rentMovie();
       this.resetState();
     } else {
@@ -27,8 +27,7 @@ class CheckOutForm extends Component {
   }
 
   rentMovie = () => {
-    console.log('renting movie (POST request) (currently non-func)');
-
+    console.log('renting movie (POST request)');
     // SJL: Defaulting due date to 7 days from today
     const dueDate = moment().add(7, 'days').format("MMM DD YYYY");
     const { selectedMovie, selectedCustomer } = this.state;
@@ -37,9 +36,6 @@ class CheckOutForm extends Component {
       customer_id: selectedCustomer.id,
       due_date: dueDate
     }
-
-    console.log('params');
-    console.log(params)
 
     const checkOutUrl = `http://localhost:3000/rentals/${title}/check-out`
 
