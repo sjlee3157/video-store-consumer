@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './styles/CustomersPage.css';
 
+import CustomersList from './CustomersList.js';
 
+class CustomersPage extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-const CustomersPage = () => {
-  return <h1> Customers Page yoooo! </h1>
+  render() {
+    return (
+      <div>
+        <h1> Customers Page :)</h1>
+        <CustomersList />
+      </div>
+    )
+
+  }
 }
+
 
 export default CustomersPage;

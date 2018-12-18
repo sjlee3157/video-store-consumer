@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './styles/LibraryPage.css';
 
+import LibraryList from './LibraryList.js';
+
 class LibraryPage extends Component {
   constructor(props) {
     super(props);
@@ -9,7 +11,13 @@ class LibraryPage extends Component {
 
   render() {
     console.log("Rendering!")
-    return <h1> Library Page! </h1>
+    return (
+      <div>
+        <h1> Library Page :)</h1>
+        <LibraryList />
+      </div>
+    )
+
   }
 }
 
