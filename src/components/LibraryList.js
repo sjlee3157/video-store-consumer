@@ -50,13 +50,13 @@ class LibraryList extends Component {
           movies: movieSet
         });
 
-      })
-      .catch((error) => {
-        console.log(error.message);
-        // this.setState({
-        //   errorMessage: error.message,
-        // });
-      });
+        })
+        .catch((error) => {
+          console.log(error.message);
+          this.setState({
+            errorMessage: error.message,
+          });
+        });
   }
 }
 
