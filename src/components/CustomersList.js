@@ -41,11 +41,8 @@ class CustomersList extends Component {
   componentDidMount() {
     axios.get(URL)
       .then((response) => {
-        console.log(response)
         const customerSet = response.data.map((customer) => {
-          console.log(customer)
           const newCustomer = { ...customer };
-          console.log(newCustomer)
           return newCustomer;
         })
 

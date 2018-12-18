@@ -42,6 +42,15 @@ class AppRouter extends Component {
     this.setState({alert: message})
   }
 
+  resetCheckOutForm = () => {
+    this.setState({
+      selectedMovie: {},
+      selectedCustomer: {}
+    })
+    console.log('reset checkout form')
+    console.log(this.state.selectedMovie)
+  }
+
   render() {
     const page = (
         <section>
@@ -89,6 +98,7 @@ class AppRouter extends Component {
                 <CheckOutForm
                   selectedMovie={ this.state.selectedMovie }
                   selectedCustomer={ this.state.selectedCustomer }
+                  resetCheckOutFormCallback={ this.resetCheckOutForm }
                 />
               </li>
             </ul>
