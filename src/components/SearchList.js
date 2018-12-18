@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './styles/SearchList.css';
 
 import Movie from './Movie'
+import AddToLibrary from './AddToLibrary'
 
 import axios from 'axios';
 const SEARCH_MOVIES_URL = 'http://localhost:3000/movies?query='
@@ -22,15 +23,19 @@ class SearchList extends Component {
         const searchResults = this.state.searchResults
         .map((movie, i) => {
           return (
-            <Movie
-              key={i}
-              externalId={movie.external_id}
-              id={movie.id}
-              imageUrl ={movie.image_url}
-              overview={movie.overview}
-              releaseDate={movie.release_date}
-              title={movie.title}
-            />
+            <section key={i}>
+              <Movie
+                key={i}
+                externalId={movie.external_id}
+                id={movie.id}
+                imageUrl ={movie.image_url}
+                overview={movie.overview}
+                releaseDate={movie.release_date}
+                title={movie.title}
+              />
+              <AddToLibrary {...movie} />
+            </section>
+
           )
         })
         console.log(`Successfully Loaded ${ searchResults.length } Search Results`, this.state.searchResults)
