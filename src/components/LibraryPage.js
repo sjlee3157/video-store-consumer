@@ -44,7 +44,6 @@ class LibraryPage extends Component {
 
 
   render() {
-<<<<<<< HEAD
     console.log("Rendered Movies:", this.state.movies)
     const allMovies = this.state.movies
       .map((movie, i) => {
@@ -67,11 +66,9 @@ class LibraryPage extends Component {
         </ul>
        </div>
     )
-=======
-    console.log("Rendering!")
-    return <h1> Library Page! </h1>
->>>>>>> a1832875227fc1401de1651d3ee1b81a5614411b
+    
   }
+
 }
 
 export default LibraryPage;
