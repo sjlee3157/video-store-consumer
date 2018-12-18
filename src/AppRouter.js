@@ -15,7 +15,9 @@ class AppRouter extends Component {
     super();
 
     this.state = {
-      query: ''
+      query: '',
+      selectedMovie: {},
+      selectedCustomer: {}
     }
   }
 
@@ -27,17 +29,24 @@ class AppRouter extends Component {
     return callbackPath
   }
 
+  selectMovie = (selectedMovie) => {
+    this.setState({ selectedMovie })
+  }
+
   render() {
     const page = (
         <section>
           <Route path="/" exact component={ HomePage } />
           <Route path="/search/" component={ props =>
-              < SearchPage {...props}
+              <SearchPage { ...props }
                 query= { this.state.query }
               />
-            }
-          />
-          <Route path="/library/" component={ LibraryPage } />
+          } />
+          <Route path="/library/" component={ props =>
+            <LibraryPage { ...props }
+              selectMovieCallback={ this.selectMovie }
+            />
+          } />
           <Route path="/customers/" component={ CustomersPage } />
         </section>
     )
@@ -63,7 +72,10 @@ class AppRouter extends Component {
                 <SearchBar searchTermCallback={ this.searchTerm } />
               </li>
               <li>
-                <CheckOutForm />
+                <CheckOutForm
+                  selectedMovie={ this.state.selectedMovie }
+                  selectedCustomer={ this.state.selectedCustomer }
+                />
               </li>
             </ul>
           </nav>

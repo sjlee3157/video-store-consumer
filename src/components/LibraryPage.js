@@ -9,9 +9,14 @@ const LibraryPage = (props) => {
     return (
       <div>
         <h1> Library Page :)</h1>
-        <LibraryList />
+        <LibraryList
+          selectMovieCallback= { props.selectMovieCallback }/>
       </div>
     )
+}
+
+LibraryPage.propTypes = {
+  selectMovieCallback: PropTypes.func
 }
 
 export default LibraryPage;
