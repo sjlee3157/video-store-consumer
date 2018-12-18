@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './styles/Customers.css';
+import './styles/CustomersPage.css';
 
 
 
 const CustomersPage = () => {
-  return <h1> Customer List </h1>
+  return <h1> Customers Page yoooo! </h1>
 }
 
 export default CustomersPage;
