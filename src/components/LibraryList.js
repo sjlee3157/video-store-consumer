@@ -23,8 +23,8 @@ class LibraryList extends Component {
             return (
               <Movie
                 key={i}
-                externalId={parseInt(movie.external_id, 10)}
-                id={parseInt(movie.id, 10)}
+                externalId={movie.external_id}
+                id={movie.id}
                 imageUrl ={movie.image_url}
                 overview={movie.overview}
                 releaseDate={movie.release_date}

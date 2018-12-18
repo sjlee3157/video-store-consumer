@@ -24,7 +24,7 @@ class SearchBar extends Component {
 
     try {
       const callbackPath = await this.props.searchTermCallback(query);
-      this.props.history.push(callbackPath);
+      this.props.history.push(callbackPath); //redirects to link defined in router '/search'
     } catch(error) {
       console.error(error)
     }
