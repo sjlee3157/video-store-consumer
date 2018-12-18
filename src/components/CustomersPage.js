@@ -13,12 +13,16 @@ class CustomersPage extends Component {
     return (
       <div>
         <h1> Customers Page :)</h1>
-        <CustomersList />
+        <CustomersList
+          selectCustomerCallback={ this.props.selectCustomerCallback }/>
       </div>
     )
 
   }
 }
 
+CustomersPage.propTypes = {
+  selectCustomerCallback: PropTypes.func
+}
 
 export default CustomersPage;

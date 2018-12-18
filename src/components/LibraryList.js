@@ -24,13 +24,14 @@ class LibraryList extends Component {
             <MovieCard
               key={ i }
               movie={ movie }
-              selectMovieCallback={ this.props.selectMovieCallback } />
+              selectMovieCallback={ this.props.selectMovieCallback }
+            />
           )
         })
       return (
         <div>
           <ul>
-           {allMovies}
+           { allMovies }
           </ul>
          </div>
       )
@@ -40,15 +41,11 @@ class LibraryList extends Component {
     axios.get(URL)
       .then((response) => {
         const movieSet = response.data.map((movie) => {
-          const newMovie = {
-            ...movie,
-          };
+          const newMovie = { ...movie };
           return newMovie;
         })
 
-        this.setState({
-          movies: movieSet
-        });
+        this.setState({ movies: movieSet });
 
         })
         .catch((error) => {

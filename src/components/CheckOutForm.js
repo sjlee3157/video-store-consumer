@@ -14,10 +14,23 @@ class CheckOutForm extends Component {
   }
 
   onSubmitHandler = (e) => {
-    console.log('submitting checkout form (nonfunctional atm)')
     e.preventDefault();
-    // TODO
-    // Make sure user can't hit 'enter' to submit invalid form
+
+    if (this.state.selectedMovie !== {} && this.state.selectedCustomer !== {}) {
+      this.rentMovie();
+      this.resetState();
+    } else {
+      console.log('did not submit. both fields must be filled out');
+    }
+  }
+
+  rentMovie = () => {
+    console.log('renting movie (POST request) (currently non-func)');
+    // POST /rentals/:title/check-out
+    // params: customer_id, due_date
+
+    // SJL: What's the due_date? I defaulted to 7 days from today
+
   }
 
   resetState = () => {
@@ -31,7 +44,7 @@ class CheckOutForm extends Component {
     console.log('rendering checkout form')
     return (
       <section>
-        <form>
+        <form onSubmit={ this.onSubmitHandler }>
           <label htmlFor="selectedMovie">{ this.state.selectedMovie.title }</label>
             <input type="hidden" name="selectedMovie" value={ this.state.selectedMovie } />
           <label htmlFor="selectedCustomer">{ this.state.selectedCustomer.name }</label>
