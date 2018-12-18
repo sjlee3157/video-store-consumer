@@ -7,7 +7,7 @@ import LibraryPage from "./components/LibraryPage"
 import CustomersPage from "./components/CustomersPage"
 
 import SearchBar from "./components/SearchBar"
-import CheckOut from './components/CheckOut'
+import CheckOutForm from './components/CheckOutForm'
 
 const AppRouter = () => (
   <Router>
@@ -30,7 +30,7 @@ const AppRouter = () => (
             <SearchBar />
           </li>
           <li>
-            <CheckOut />
+            <CheckOutForm />
           </li>
         </ul>
       </nav>
