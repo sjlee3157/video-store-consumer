@@ -18,7 +18,7 @@ class AppRouter extends Component {
       query: '',
       selectedMovie: {},
       selectedCustomer: {},
-      alert: ''
+      alert: {}
     }
   }
 
@@ -91,11 +91,11 @@ class AppRouter extends Component {
                   selectedCustomer={ this.state.selectedCustomer }
                 />
               </li>
-              <li>
-                { this.state.alert }
-              </li>
             </ul>
           </nav>
+          <section className={ Object.keys(this.state.alert)[0]}>
+            { Object.values(this.state.alert)[0] }
+          </section >
 
           { page }
 
