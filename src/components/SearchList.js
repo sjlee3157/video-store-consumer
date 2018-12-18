@@ -10,8 +10,8 @@ const SEARCH_MOVIES_URL = 'http://localhost:3000/movies?query='
 
 
 class SearchList extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       searchResults: []
@@ -34,7 +34,8 @@ class SearchList extends Component {
                 title={movie.title}
               />
               <AddToLibrary {...movie}
-                inventory={5} />
+                inventory={5}
+                renderAlertCallback= {this.props.renderAlertCallback} />
             </section>
 
           )
@@ -94,7 +95,8 @@ class SearchList extends Component {
 }
 
 SearchList.propTypes = {
-  query: PropTypes.string
+  query: PropTypes.string,
+  renderAlertCallback: PropTypes.func
 };
 
 export default SearchList;

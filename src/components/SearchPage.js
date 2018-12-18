@@ -20,7 +20,9 @@ class SearchPage extends Component {
       return (
       <div>
         <h1> Search Page :)</h1>
-        <SearchList query={ this.props.query } />
+        <SearchList
+          query={ this.props.query }
+          renderAlertCallback= { this.props.renderAlertCallback } />
       </div>
     )
   }
@@ -35,7 +37,8 @@ class SearchPage extends Component {
 }
 
 SearchPage.propTypes = {
-  query: PropTypes.string
+  query: PropTypes.string,
+  renderAlertCallback: PropTypes.func
 };
 
 export default SearchPage;

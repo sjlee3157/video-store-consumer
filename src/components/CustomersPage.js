@@ -12,7 +12,7 @@ class CustomersPage extends Component {
   render() {
     return (
       <div>
-        <h1> Customers Page :)</h1>
+        <h1> Customers Page</h1>
         <CustomersList
           selectCustomerCallback={ this.props.selectCustomerCallback }/>
       </div>

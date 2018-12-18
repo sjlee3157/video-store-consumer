@@ -17,7 +17,8 @@ class AppRouter extends Component {
     this.state = {
       query: '',
       selectedMovie: {},
-      selectedCustomer: {}
+      selectedCustomer: {},
+      alert: ''
     }
   }
 
@@ -37,6 +38,10 @@ class AppRouter extends Component {
     this.setState({ selectedCustomer })
   }
 
+  renderAlert = (message) => {
+    this.setState({alert: message})
+  }
+
   render() {
     const page = (
         <section>
@@ -44,6 +49,7 @@ class AppRouter extends Component {
           <Route path="/search/" component={ props =>
               <SearchPage { ...props }
                 query= { this.state.query }
+                renderAlertCallback= { this.renderAlert }
               />
           } />
           <Route path="/library/" component={ props =>
@@ -84,6 +90,9 @@ class AppRouter extends Component {
                   selectedMovie={ this.state.selectedMovie }
                   selectedCustomer={ this.state.selectedCustomer }
                 />
+              </li>
+              <li>
+                { this.state.alert }
               </li>
             </ul>
           </nav>

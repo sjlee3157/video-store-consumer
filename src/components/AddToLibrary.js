@@ -13,10 +13,13 @@ const AddToLibrary = (props) => {
     axios.post(URL, props)
       .then((response) => {
         console.log(response, props)
+        props.renderAlertCallback(`${props.title} successfully added.`)
         })
       .catch((errors) => {
         console.log(errors);
+        props.renderAlertCallback(`${errors}`)
       });
+
   }
 
   const onButtonClick = () => {
@@ -34,7 +37,8 @@ AddToLibrary.propTypes = {
   imageUrl: PropTypes.string,
   title: PropTypes.string,
   releaseDate: PropTypes.string,
-  inventory: PropTypes.number
+  inventory: PropTypes.number,
+  renderAlertCallback: PropTypes.func
 };
 
 
