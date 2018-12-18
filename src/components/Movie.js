@@ -10,6 +10,7 @@ const Movie = (props) => {
       <h3>{props.title}</h3>
       <p>{props.overview}</p>
       <p>Release date: {props.releaseDate}</p>
+      <img src={props.imageUrl}/>
     </li>
   )
 }
