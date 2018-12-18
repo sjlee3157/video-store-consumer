@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import moment from 'moment';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import './styles/CheckOutForm.css';
 
@@ -26,11 +28,28 @@ class CheckOutForm extends Component {
 
   rentMovie = () => {
     console.log('renting movie (POST request) (currently non-func)');
-    // POST /rentals/:title/check-out
-    // params: customer_id, due_date
 
-    // SJL: What's the due_date? I defaulted to 7 days from today
+    // SJL: Defaulting due date to 7 days from today
+    const dueDate = moment().add(7, 'days').format("MMM DD YYYY");
+    const { selectedMovie, selectedCustomer } = this.state;
+    const title = selectedMovie.title
+    const params = {
+      customer_id: selectedCustomer.id,
+      due_date: dueDate
+    }
 
+    console.log('params');
+    console.log(params)
+
+    const checkOutUrl = `http://localhost:3000/rentals/${title}/check-out`
+
+    axios.post(checkOutUrl, params)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      })
   }
 
   resetState = () => {
