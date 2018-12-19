@@ -42,15 +42,20 @@ const CheckOutForm = (props) => {
   }
 
   return (
-    <section>
+    <section className="checkout-form">
       <form onSubmit={ onSubmitHandler }>
-        <label htmlFor="selectedMovie">{ props.selectedMovie.title }</label>
-        <input type="hidden" name="selectedMovie" value={ props.selectedMovie } />
-
-        <label htmlFor="selectedCustomer">{ props.selectedCustomer.name }</label>
-        <input type="hidden" name="selectedCustomer" value={ props.selectedCustomer } />
-
-        <input type="submit" name="submit" value="Check Out This Movie" />
+        <div className="checkout-form__movie">
+          <label htmlFor="selectedMovie">{ props.selectedMovie.title }</label>
+          <input type="hidden" name="selectedMovie" value={ props.selectedMovie } />
+        </div>
+        <div className="checkout-form__customer">
+          <label htmlFor="selectedCustomer">{ props.selectedCustomer.name }</label>
+          <input type="hidden" name="selectedCustomer" value={ props.selectedCustomer } />
+        </div>
+        <div className="checkout-form__submit">
+          <input className="button button-large"
+            type="submit" name="submit" value="Check Out Now" />
+        </div>
       </form>
     </section>
   )

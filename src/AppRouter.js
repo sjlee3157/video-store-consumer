@@ -82,16 +82,16 @@ class AppRouter extends Component {
             <ul className="router__nav-list">
               <div className="router__nav-navlinks">
                 <li>
-                  <NavLink to="/">Home</NavLink>
+                  <h4><NavLink to="/">Home</NavLink></h4>
                 </li>
                 <li>
-                  <NavLink to="/library/">Our Movie Store</NavLink>
+                  <h4><NavLink to="/library/">Our Movie Store</NavLink></h4>
                 </li>
                 <li>
-                  <NavLink to="/customers/">Customers</NavLink>
+                  <h4><NavLink to="/customers/">Customers</NavLink></h4>
                 </li>
                 <li>
-                  <SearchBar searchTermCallback={ this.searchTerm } />
+                  <h4><SearchBar searchTermCallback={ this.searchTerm } /></h4>
                 </li>
               </div>
               <div className="router__nav-checkout">

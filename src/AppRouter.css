@@ -3,11 +3,11 @@
 }
 
 .router__nav a {
-  color: silver;
+  color: #F6F7F8;
 }
 
 .router__nav a:hover {
-  color: orangered;
+  color: #F41861;
   text-decoration: none;
 }
 
@@ -36,6 +36,8 @@
 
 .router__nav-checkout {
   grid-row: 2;
+  display: flex;
+  justify-content: center;
 }
 
 .router__nav-alerts {

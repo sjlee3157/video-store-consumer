@@ -40,7 +40,7 @@ class SearchBar extends Component {
             name="query"
             placeholder="I'm looking for..."
           />
-          <input type="submit" name="submit" value="Search Movie Database" />
+          <input className="button button-medium" type="submit" name="submit" value="Search Movie Database" />
         </form>
       </section>
     )

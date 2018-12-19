@@ -1,11 +1,11 @@
 .select-button__button {
-  background-color: inherit;
+  background-color: #F41861;
+  border-radius: 0.8rem;
   color: inherit;
-  border: 2px solid white;
+  font-size: 0.8rem;
+  border: none;
 }
 
 .select-button__button:hover {
-  background-color: papayawhip;
-  color: firebrick;
-  border: 2px solid firebrick;
+  background-color: #ca1551;
 }

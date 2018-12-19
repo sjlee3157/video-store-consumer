@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 import PropTypes from 'prop-types';
 import './styles/LibraryList.css';
 
@@ -25,34 +26,39 @@ class LibraryList extends Component {
         .reverse()
         .map((movie, i) => {
           console.log(movie);
+          const releaseDate = moment(movie.release_date).format('MMM Do, YYYY');
           return (
             // <MovieCard
             //   key={ i }
             //   movie={ movie }
             //   selectMovieCallback={ this.props.selectMovieCallback }
             // />
-            <div key={ i }>
+            <div className="card movie-carousel__movie" key={ i }>
               <SelectButton
                 buttonType={ 'selectMovie' }
                 movie={ movie }
                 selectMovieCallback={ this.props.selectMovieCallback } />
-              <img className="carousel__movie-image" src={ movie.image_url } alt="movie image"/>
-              <h3>{ movie.title }</h3>
-              <p>{ movie.overview }</p>
-              <p>Release date: { movie.release_date }</p>
+              <img className="card-img-top movie-carousel__movie-image"
+                src={ movie.image_url } alt={ `${ movie.title }`}/>
+              <div className="card-body">
+                <h3 className="card-title">{ movie.title }</h3>
+                <p className="card-subtitle"><small className="text-muted">Released on: { releaseDate }</small></p>
+                <p className="card-text">{ movie.overview }</p>
+              </div>
+
             </div>
           )
         })
       return (
-        <div>
+        <div className="movie-carousel">
           <Carousel
             infiniteLoop={ true }
             autoPlay={ true }
-            
+            interval={ 10000 }
             showStatus={ false }
             showIndicators={ false}
             centerMode={ true }
-            centerSlidePercentage={ 30 }
+            centerSlidePercentage={ 20 }
             >
             { allMovies }
           </Carousel>

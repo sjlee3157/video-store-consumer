@@ -8,7 +8,7 @@ import LibraryList from './LibraryList.js';
 const LibraryPage = (props) => {
     return (
       <div>
-        <h1> Library Page :)</h1>
+        <h1>Our Movie Store</h1>
         <LibraryList
           selectMovieCallback= { props.selectMovieCallback }/>
       </div>

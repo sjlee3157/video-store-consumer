@@ -26,7 +26,7 @@ const AddToLibrary = (props) => {
     addMovie(props)
   }
 
-  return <button onClick={onButtonClick}> Add to Library </button>
+  return <button className="button" onClick={onButtonClick}> Add to Library </button>
 
 }
 
