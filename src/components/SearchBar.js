@@ -38,9 +38,9 @@ class SearchBar extends Component {
             onChange={ this.onFormChange }
             value={ this.state.query }
             name="query"
-            placeholder="Search The Movies Database"
+            placeholder="I'm looking for..."
           />
-          <input type="submit" name="submit" value="Search" />
+          <input type="submit" name="submit" value="Search Movie Database" />
         </form>
       </section>
     )

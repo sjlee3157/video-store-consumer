@@ -9,6 +9,7 @@ import CustomersPage from "./components/CustomersPage"
 import SearchBar from "./components/SearchBar"
 import CheckOutForm from './components/CheckOutForm'
 
+import './AppRouter.css';
 
 class AppRouter extends Component {
   constructor() {
@@ -76,34 +77,38 @@ class AppRouter extends Component {
 
     return (
       <Router>
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <NavLink to="/">Home</NavLink>
-              </li>
-              <li>
-                <NavLink to="/search/">Search Movies</NavLink>
-              </li>
-              <li>
-                <NavLink to="/library/">Movie Library</NavLink>
-              </li>
-              <li>
-                <NavLink to="/customers/">Customers</NavLink>
-              </li>
-              <li>
-                <SearchBar searchTermCallback={ this.searchTerm } />
-              </li>
-              <li>
-                <CheckOutForm
-                  selectedMovie={ this.state.selectedMovie }
-                  selectedCustomer={ this.state.selectedCustomer }
-                  resetCheckOutFormCallback={ this.resetCheckOutForm }
-                />
-              </li>
-              <li>
-                { this.state.alert }
-              </li>
+        <div className="router">
+          <nav className="router__nav">
+            <ul className="router__nav-list">
+              <div className="router__nav-navlinks">
+                <li>
+                  <NavLink to="/">Home</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/library/">Our Movie Store</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/customers/">Customers</NavLink>
+                </li>
+                <li>
+                  <SearchBar searchTermCallback={ this.searchTerm } />
+                </li>
+              </div>
+              <div className="router__nav-checkout">
+                <li>
+                  <CheckOutForm
+                    selectedMovie={ this.state.selectedMovie }
+                    selectedCustomer={ this.state.selectedCustomer }
+                    resetCheckOutFormCallback={ this.resetCheckOutForm }
+                  />
+                </li>
+              </div>
+              <div className="router__nav-alerts">
+                <li>
+                  Placeholder Text for Alerts
+                  { this.state.alert }
+                </li>
+              </div>
             </ul>
           </nav>
 

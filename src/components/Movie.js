@@ -6,12 +6,12 @@ import './styles/Movie.css';
 const Movie = (props) => {
 
   return (
-    <li>
+    <div>
+      <img src={props.imageUrl}/>
       <h3>{props.title}</h3>
       <p>{props.overview}</p>
       <p>Release date: {props.releaseDate}</p>
-      <img src={props.imageUrl}/>
-    </li>
+    </div>
   )
 }
 

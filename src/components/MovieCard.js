@@ -11,20 +11,19 @@ const MovieCard = (props) => {
   const { movie } = props;
 
   return (
-    <section>
+    <div>
       <SelectButton
         buttonType={ 'selectMovie' }
         movie={ movie }
-        selectMovieCallback={ props.selectMovieCallback }/>
+        selectMovieCallback={ props.selectMovieCallback } />
       <Movie
         externalId={movie.external_id}
         id={movie.id}
         imageUrl ={movie.image_url}
         overview={movie.overview}
         releaseDate={movie.release_date}
-        title={movie.title}
-      />
-     </section>
+        title={movie.title} />
+     </div>
   )
 }
 

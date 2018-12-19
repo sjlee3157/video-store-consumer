@@ -10,13 +10,20 @@
     "react-async-await": "^1.5.0",
     "react-dom": "^16.4.1",
     "react-moment": "^0.8.4",
+    "react-responsive-carousel": "^3.1.45",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.4"
+    "react-scripts": "^2.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
