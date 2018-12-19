@@ -1,0 +1,14 @@
+#eac435         saffron (yellow)
+#345995         b'dazzled blue (blue)
+#03cea4         caribbean green (green)
+
+#017C64         generic veridian (darker green - hover color)
+
+#fb4d3d         tart orange (orange)
+#ca1551         pictorial carmine (darker red - hover color)
+
+#F41861         ruby (our main pink color!)
+
+#000407         rich black (background color - blue black)
+
+#F6F7F8         white smoke (white, text color)
