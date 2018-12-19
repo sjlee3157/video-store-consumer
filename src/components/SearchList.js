@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './styles/SearchList.css';
 
+import _ from '../../node_modules/lodash'
+import chunk from '../../node_modules/lodash/array';
+
 import Movie from './Movie'
 import AddToLibrary from './AddToLibrary'
+import FilterSearchResultsBar from './FilterSearchResultsBar'
 
 import axios from 'axios';
 const SEARCH_MOVIES_URL = 'http://localhost:3000/movies?query='
@@ -14,50 +18,70 @@ class SearchList extends Component {
     super(props);
 
     this.state = {
-      searchResults: []
+      searchResults: [],
+      masterListSearchResults: []
       }
   }
 
-  render() {
-      const getSearchResults = () => {
-        const searchResults = this.state.searchResults
-        .map((movie, i) => {
-          return (
-            <div className="card movie-card" key={i}>
-              <Movie
-                key={i}
-                externalId={movie.external_id}
-                id={movie.id}
-                imageUrl ={movie.image_url}
-                overview={movie.overview}
-                releaseDate={movie.release_date}
-                title={movie.title}
-              />
-              <AddToLibrary {...movie}
-                inventory={5}
-                renderAlertCallback= {this.props.renderAlertCallback} />
-            </div>
+  onFilterChange = (query) => {
+    console.log(query);
+    const regex = new RegExp(query, 'i');
+    const searchResults = (this.state.masterListSearchResults).filter((movie) => {
+      const keywords = movie.title + ' ' + movie.overview;
+      return regex.test(keywords);
+    });
+    this.setState({ searchResults });
+  }
 
-          )
-        })
-        console.log(`Successfully Loaded ${ searchResults.length } Search Results`, this.state.searchResults)
-        return searchResults
-      }
-
+  mapRowToCards = (row) => {
+    const rowCards = row.map((movie, i) => {
       return (
-        <div>
-          <ul>
-           { getSearchResults() }
-          </ul>
-         </div>
+        <div className="search-results__card card movie-card" key={ i }>
+          <Movie
+            key={ i }
+            externalId={ movie.external_id }
+            id={ movie.id }
+            imageUrl ={ movie.image_url }
+            overview={ movie.overview }
+            releaseDate={ movie.release_date }
+            title={ movie.title }
+          />
+          <AddToLibrary
+            { ...movie }
+            inventory={ 5 }
+            renderAlertCallback= { this.props.renderAlertCallback }
+          />
+        </div>
       )
-    }
+    });
+    return rowCards;
+  }
 
-// TODO: I think this should move to the SearchBar component to
-// reduce number of API calls we have to make... I'll think tomorrow SJL
+  render() {
+    const getSearchResults = () => {
+
+    const resultsChunkedByRow = _.chunk(this.state.searchResults, 4);
+    const searchResults = resultsChunkedByRow.flatMap((row, rowNumber) => {
+      return (
+        <div className="card-group" key={ rowNumber }>
+          { this.mapRowToCards(row) }
+        </div>
+      )
+    });
+    console.log(`Successfully Loaded ${ searchResults.length } Search Results`, searchResults)
+    return searchResults
+  }
+
+    return (
+      <div className="search-results__wrapper">
+        <FilterSearchResultsBar
+          onFilterChangeCallback={ this.onFilterChange } />
+        { getSearchResults() }
+      </div>
+    )
+  }
+
   getMovies() {
-    console.log('Get movies');
-    console.log(this.props.query);
     const url = SEARCH_MOVIES_URL + this.props.query;
     axios.get(url)
       .then((response) => {
@@ -68,6 +92,7 @@ class SearchList extends Component {
           return newMovie;
         })
         this.setState({
+          masterListSearchResults: movieSet,
           searchResults: movieSet
         });
       })
@@ -79,7 +104,6 @@ class SearchList extends Component {
 
   componentDidMount() {
     if (this.props.query !== '') {
-      console.log('mount list');
       this.getMovies();
     }
   }

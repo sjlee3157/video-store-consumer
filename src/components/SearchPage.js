@@ -8,7 +8,6 @@ import SearchList from './SearchList'
 class SearchPage extends Component {
 
   render() {
-    console.log('Search page')
       return (
       <div>
         <h1> Search Results</h1>
