@@ -17,8 +17,6 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 library.add(fas);
 
 
-
-
 class AppRouter extends Component {
   constructor() {
     super();
@@ -62,16 +60,18 @@ class AppRouter extends Component {
     console.log(this.state.selectedMovie)
   }
 
-  displayAlerts = () => {
+  displayAlert = () => {
     // Object.values(alert)
     // Object.keys(alert)
     const alertType = Object.keys(this.state.alert)[0];
     const alertMessage = Object.values(this.state.alert)[0];
-
+    console.log('App Router:')
+    console.log(alertType);
+    console.log(alertMessage);
     return (
-      <li className={ `router__nav-alerts-${alertType}` }>
+      <p className={ `router__nav-alerts-${alertType}` }>
         { alertMessage }
-      </li>
+      </p>
     )
   }
 
@@ -128,7 +128,7 @@ class AppRouter extends Component {
                 </li>
               </div>
               <div className="router__nav-alerts">
-                { this.displayAlert }
+                { this.displayAlert() }
               </div>
             </ul>
           </nav>
