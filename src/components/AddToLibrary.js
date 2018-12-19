@@ -8,8 +8,12 @@ import axios from 'axios';
 const URL = 'http://localhost:3000/movies'
 
 const AddToLibrary = (props) => {
-
+  // let params = {...props};
+  // const string = props.image_url
+  // params.image_url = string.substr(string.indexOf("w185") + 4)
+  // console.log(params.image_url)
   const addMovie = (props) => {
+    // console.log("HERE", params)
     axios.post(URL, props)
       .then((response) => {
         console.log(response, props)
@@ -32,11 +36,11 @@ const AddToLibrary = (props) => {
 
 AddToLibrary.propTypes = {
   id: PropTypes.number,
-  externalId: PropTypes.number,
+  external_id: PropTypes.number,
   overview: PropTypes.string,
-  imageUrl: PropTypes.string,
+  image_url: PropTypes.string,
   title: PropTypes.string,
-  releaseDate: PropTypes.string,
+  release_date: PropTypes.string,
   inventory: PropTypes.number,
   renderAlertCallback: PropTypes.func
 };

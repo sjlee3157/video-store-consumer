@@ -1,7 +1,9 @@
 .error {
-  color: red;
+  background-color: #ff9999;
+  padding: 2%;
 }
 
 .success {
-  color: green;
+  background-color: #e6ffcc;
+  padding: 2%;
 }

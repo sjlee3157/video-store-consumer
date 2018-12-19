@@ -33,11 +33,15 @@ const CheckOutForm = (props) => {
     const checkOutUrl = `http://localhost:3000/rentals/${title}/check-out`
 
     axios.post(checkOutUrl, params)
+    // console.log(renderAlertCallback)
       .then((response) => {
+        // renderAlertCallback({"success":`A copy of ${selectedMovie.title}
+        // has been checked-out to ${selectedCustomer.name}.`})
         console.log(response.data);
       })
       .catch((error) => {
         console.log(error.message);
+        // props.renderAlertCallback({"error":`This rental could not be created`})
       })
   }
 
@@ -60,7 +64,8 @@ const CheckOutForm = (props) => {
 CheckOutForm.propTypes = {
   selectedMovie: PropTypes.object,
   selectedCustomer: PropTypes.object,
-  resetCheckOutFormCallback: PropTypes.func
+  resetCheckOutFormCallback: PropTypes.func,
+  renderAlertCallback: PropTypes.func
 }
 
 export default CheckOutForm;

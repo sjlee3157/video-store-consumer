@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import './AppRouter.css';
 
 import HomePage from "./components/HomePage"
 import SearchPage from "./components/SearchPage"
@@ -38,8 +39,11 @@ class AppRouter extends Component {
     this.setState({ selectedCustomer })
   }
 
+
   renderAlert = (message) => {
     this.setState({alert: message})
+    setTimeout(() => this.setState({alert: {} }), 4000);
+
   }
 
   resetCheckOutForm = () => {
@@ -99,6 +103,7 @@ class AppRouter extends Component {
                   selectedMovie={ this.state.selectedMovie }
                   selectedCustomer={ this.state.selectedCustomer }
                   resetCheckOutFormCallback={ this.resetCheckOutForm }
+                  renderAlertCallback= { this.renderAlert }
                 />
               </li>
             </ul>
