@@ -51,7 +51,6 @@ class AppRouter extends Component {
   renderAlert = (message) => {
     this.setState({alert: message})
     setTimeout(() => this.setState({alert: {} }), 4000);
-
   }
 
   resetCheckOutForm = () => {
@@ -61,6 +60,19 @@ class AppRouter extends Component {
     })
     console.log('reset checkout form')
     console.log(this.state.selectedMovie)
+  }
+
+  displayAlerts = () => {
+    // Object.values(alert)
+    // Object.keys(alert)
+    const alertMessage = Object.keys(this.state.alert)[0];
+    const alertType = Object.values(this.state.alert)[0];
+
+    return (
+      <li className={ `router__nav-alerts-${alertType}` }>
+        { alertMessage }
+      </li>
+    )
   }
 
   render() {
@@ -118,7 +130,7 @@ class AppRouter extends Component {
               <div className="router__nav-alerts">
                 <li>
                   Placeholder Text for Alerts
-                  { this.state.alert }
+                  { this.displayAlert }
                 </li>
               </div>
             </ul>

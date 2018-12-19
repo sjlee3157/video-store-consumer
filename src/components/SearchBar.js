@@ -41,7 +41,11 @@ class SearchBar extends Component {
     const searchIcon = <FontAwesomeIcon icon="search" />
     return (
       <section>
-        <form onSubmit={ this.onSubmitHandler } autoComplete="off">
+        <form onSubmit={ this.onSubmitHandler }
+          autoComplete="off"
+          autoCorrect="off"
+          autoCapitalize="off"
+          spellCheck="false">
           <input
             onClick={ this.clearForm }
             className="searchbar__form-input"

@@ -43,3 +43,15 @@
 .router__nav-alerts {
   grid-row: 3;
 }
+
+.router__nav-alerts-success {
+  color: #017C64;
+}
+
+.router__nav-alerts-failure {
+  color: #FB4D3D;
+}
+
+.router__nav-alerts-warning {
+  color: #EAC435;
+}

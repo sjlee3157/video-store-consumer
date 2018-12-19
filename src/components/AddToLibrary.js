@@ -21,7 +21,7 @@ const AddToLibrary = (props) => {
         })
       .catch((error) => {
         console.log(error.response.data.errors);
-        props.renderAlertCallback({"error" :`${error.response.data.errors}`})
+        props.renderAlertCallback({"failure" :`${error.response.data.errors}`})
       });
 
   }
