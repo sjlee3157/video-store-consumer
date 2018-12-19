@@ -41,6 +41,14 @@ const CheckOutForm = (props) => {
       })
   }
 
+  const visibility = () => {
+    if (props.selectedMovie.title && props.selectedCustomer.name) {
+      return ""
+    } else {
+      return "disabled"
+    }
+  }
+
   return (
     <section className="checkout-form">
       <form onSubmit={ onSubmitHandler }>
@@ -53,7 +61,7 @@ const CheckOutForm = (props) => {
           <input type="hidden" name="selectedCustomer" value={ props.selectedCustomer } />
         </div>
         <div className="checkout-form__submit">
-          <input className="button button-large"
+          <input className= { `button button-large ${ visibility() }` }
             type="submit" name="submit" value="Check Out Now" />
         </div>
       </form>

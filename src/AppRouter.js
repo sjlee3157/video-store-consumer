@@ -11,6 +11,13 @@ import CheckOutForm from './components/CheckOutForm'
 
 import './AppRouter.css';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+library.add(fas);
+
+
+
+
 class AppRouter extends Component {
   constructor() {
     super();

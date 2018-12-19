@@ -3,6 +3,9 @@ import { withRouter } from "react-router-dom";
 import PropTypes from 'prop-types';
 import './styles/SearchBar.css';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+
 class SearchBar extends Component {
   constructor() {
     super();
@@ -31,16 +34,20 @@ class SearchBar extends Component {
   }
 
   render() {
+    const searchIcon = <FontAwesomeIcon icon="search" />
     return (
       <section>
-        <form onSubmit={ this.onSubmitHandler }>
+        <form onSubmit={ this.onSubmitHandler } autoComplete="off">
           <input
+            className="searchbar__form-input"
             onChange={ this.onFormChange }
             value={ this.state.query }
             name="query"
-            placeholder="I'm looking for..."
+            placeholder="Search movies database"
+            size="23"
           />
-          <input className="button button-medium" type="submit" name="submit" value="Search Movie Database" />
+          <button className="button button-search"
+            type="submit" name="submit">{ searchIcon }</button>
         </form>
       </section>
     )
