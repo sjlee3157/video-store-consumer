@@ -1,0 +1,11 @@
+.select-button__button {
+  background-color: #F41861;
+  border-radius: 0.8rem;
+  color: inherit;
+  font-size: 0.8rem;
+  border: none;
+}
+
+.select-button__button:hover {
+  background-color: #ca1551;
+}

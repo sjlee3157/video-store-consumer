@@ -1,0 +1,25 @@
+.searchbar__form-input {
+  background-color: inherit;
+  color: #03cea4;
+  border: none;
+  margin-right: 0.4rem;
+  opacity: 0.3;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -ms-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  text-align: right;
+}
+
+.searchbar__form-input:focus::placeholder {
+  visibility: hidden;
+}
+
+.searchbar__form-input:hover {
+  opacity: 1;
+}
+
+.searchbar__form-input::placeholder {
+  color: #eac435;
+}

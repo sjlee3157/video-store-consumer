@@ -8,22 +8,22 @@ const SelectButton = (props) => {
   const label = ( props.movie ? props.movie.title : props.customer.name )
 
   const selectMovieButton = (
-    <button onClick={ () => props.selectMovieCallback(props.movie) }>
-      Select { label }
+    <button className="button" onClick={ () => props.selectMovieCallback(props.movie) }>
+      + Add To Rental
     </button>
   )
 
   const selectCustomerButton = (
-    <button onClick={ () => props.selectCustomerCallback(props.customer) }>
-      Select { label }
+    <button className="button" onClick={ () => props.selectCustomerCallback(props.customer) }>
+      + Add As Renter
     </button>
   )
 
   return (
-    <section>
+    <div className="button">
     { props.buttonType === "selectMovie" && selectMovieButton }
     { props.buttonType === "selectCustomer" && selectCustomerButton }
-    </section>
+    </div>
   )
 }
 

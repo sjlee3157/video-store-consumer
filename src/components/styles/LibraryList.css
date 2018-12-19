@@ -1,0 +1,39 @@
+/* font-family: 'Varela Round', sans-serif; */
+/* font-family: 'Nunito', sans-serif; */
+
+.movie-carousel__movie-image {
+  max-width: 111px;
+}
+
+.card {
+  background-color: #000407;
+  align-items: center;
+}
+
+.card-title {
+  margin-bottom: 0;
+}
+
+.card-subtitle {
+  margin: 0.3rem 0;
+  text-align: left;
+}
+
+.card-body{
+  overflow-y: scroll;
+  height: 288px;
+}
+
+.card-text {
+  text-align: justify;
+  font-size: 0.8rem;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.card-img-top {
+  margin: 1rem 0;
+}
+
+.slide {
+  height: 493px;
+}

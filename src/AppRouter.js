@@ -10,6 +10,14 @@ import CustomersPage from "./components/CustomersPage"
 import SearchBar from "./components/SearchBar"
 import CheckOutForm from './components/CheckOutForm'
 
+import './AppRouter.css';
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+library.add(fas);
+
+
+
 
 class AppRouter extends Component {
   constructor() {
@@ -80,32 +88,39 @@ class AppRouter extends Component {
 
     return (
       <Router>
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <NavLink to="/">Home</NavLink>
-              </li>
-              <li>
-                <NavLink to="/search/">Search Movies</NavLink>
-              </li>
-              <li>
-                <NavLink to="/library/">Movie Library</NavLink>
-              </li>
-              <li>
-                <NavLink to="/customers/">Customers</NavLink>
-              </li>
-              <li>
-                <SearchBar searchTermCallback={ this.searchTerm } />
-              </li>
-              <li>
-                <CheckOutForm
-                  selectedMovie={ this.state.selectedMovie }
-                  selectedCustomer={ this.state.selectedCustomer }
-                  resetCheckOutFormCallback={ this.resetCheckOutForm }
-                  renderAlertCallback= { this.renderAlert }
-                />
-              </li>
+        <div className="router">
+          <nav className="router__nav">
+            <ul className="router__nav-list">
+              <div className="router__nav-navlinks">
+                <li>
+                  <h4><NavLink to="/">Home</NavLink></h4>
+                </li>
+                <li>
+                  <h4><NavLink to="/library/">Our Movie Store</NavLink></h4>
+                </li>
+                <li>
+                  <h4><NavLink to="/customers/">Customers</NavLink></h4>
+                </li>
+                <li>
+                  <h4><SearchBar searchTermCallback={ this.searchTerm } /></h4>
+                </li>
+              </div>
+              <div className="router__nav-checkout">
+                <li>
+                  <CheckOutForm
+                    selectedMovie={ this.state.selectedMovie }
+                    selectedCustomer={ this.state.selectedCustomer }
+                    resetCheckOutFormCallback={ this.resetCheckOutForm }
+                    renderAlertCallback= { this.renderAlert }
+                  />
+                </li>
+              </div>
+              <div className="router__nav-alerts">
+                <li>
+                  Placeholder Text for Alerts
+                  { this.state.alert }
+                </li>
+              </div>
             </ul>
           </nav>
           <section className={ Object.keys(this.state.alert)[0]}>

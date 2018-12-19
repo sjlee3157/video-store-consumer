@@ -7,32 +7,17 @@ import SearchList from './SearchList'
 
 class SearchPage extends Component {
 
-  // constructor() {
-  //   super();
-  //
-  //   this.state = {
-  //     query: ''
-  //   }
-  // }
-
   render() {
     console.log('Search page')
       return (
       <div>
-        <h1> Search Page :)</h1>
+        <h1> Search Results</h1>
         <SearchList
           query={ this.props.query }
           renderAlertCallback= { this.props.renderAlertCallback } />
       </div>
     )
   }
-
-  // componentDidUpdate(prevProps) {
-  //   console.log('update page');
-  //   if (this.props.query !== prevProps.query) {
-  //     this.setState( { query: this.props.query });
-  //   }
-  // }
 
 }
 
