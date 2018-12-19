@@ -27,21 +27,20 @@ const CheckOutForm = (props) => {
     const title = selectedMovie.title
     const params = {
       customer_id: selectedCustomer.id,
-      due_date: dueDate
+      due_date: dueDate,
+      renderAlertCallback: props.renderAlertCallback
     }
 
     const checkOutUrl = `http://localhost:3000/rentals/${title}/check-out`
 
     axios.post(checkOutUrl, params)
-    // console.log(renderAlertCallback)
       .then((response) => {
-        // renderAlertCallback({"success":`A copy of ${selectedMovie.title}
-        // has been checked-out to ${selectedCustomer.name}.`})
+        params.renderAlertCallback({"success": `${selectedCustomer.name} has checked out ${selectedMovie.title}.`})
         console.log(response.data);
       })
       .catch((error) => {
         console.log(error.message);
-        // props.renderAlertCallback({"error":`This rental could not be created`})
+        params.renderAlertCallback({"failure":`This rental could not be created`})
       })
   }
 

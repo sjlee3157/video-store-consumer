@@ -47,8 +47,9 @@ class AppRouter extends Component {
 
 
   renderAlert = (message) => {
+    console.log("IN RENDER ALERT")
     this.setState({alert: message})
-    // setTimeout(() => this.setState({alert: {} }), 4000);
+    setTimeout(() => this.setState({alert: {} }), 10000);
   }
 
   resetCheckOutForm = () => {

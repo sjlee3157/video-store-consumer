@@ -46,12 +46,15 @@
 
 .router__nav-alerts-success {
   color: #017C64;
+  font-size: 1.5em;
 }
 
 .router__nav-alerts-failure {
   color: #FB4D3D;
+  font-size: 1.5em;
 }
 
 .router__nav-alerts-warning {
   color: #EAC435;
+  font-size: 1.5em;
 }
