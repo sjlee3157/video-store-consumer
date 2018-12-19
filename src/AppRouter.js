@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import './AppRouter.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import HomePage from "./components/HomePage"
 import SearchPage from "./components/SearchPage"
@@ -57,21 +58,28 @@ class AppRouter extends Component {
       selectedMovie: {},
       selectedCustomer: {}
     })
-    console.log('reset checkout form')
-    console.log(this.state.selectedMovie)
   }
 
   displayAlert = () => {
-    // Object.values(alert)
-    // Object.keys(alert)
     const alertType = Object.keys(this.state.alert)[0];
     const alertMessage = Object.values(this.state.alert)[0];
-    console.log('App Router:')
-    console.log(alertType);
-    console.log(alertMessage);
+
+    const alertIcon = () => {
+      if (alertType === "success") {
+        return <FontAwesomeIcon icon="star" />
+      } else if (alertType === "failure"){
+        return <FontAwesomeIcon icon="ban" />
+      } else if (alertType === "warning"){
+        return <FontAwesomeIcon icon="cog" />
+      } else {
+        return ""
+      }
+    }
+
+
     return (
       <p className={ `router__nav-alerts-${alertType}` }>
-        { alertMessage }
+        {alertIcon()}  { alertMessage }
       </p>
     )
   }
