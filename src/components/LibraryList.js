@@ -59,6 +59,7 @@ class LibraryList extends Component {
             showIndicators={ false}
             centerMode={ true }
             centerSlidePercentage={ 20 }
+            selectedItem={ 2 }
             >
             { allMovies }
           </Carousel>
