@@ -1,9 +1,15 @@
 {
-  "main.css": "static/css/main.08c7c515.css",
-  "main.css.map": "static/css/main.08c7c515.css.map",
-  "main.js": "static/js/main.449326b3.js",
-  "main.js.map": "static/js/main.449326b3.js.map",
-  "static/media/film-reel.svg": "static/media/film-reel.6794d2f3.svg",
-  "static/media/magnifying-glass-search.svg": "static/media/magnifying-glass-search.6c42d201.svg",
-  "static/media/people.svg": "static/media/people.2aa64ca8.svg"
+  "main.css": "/video-store-consumer/static/css/main.4efc1fce.chunk.css",
+  "main.js": "/video-store-consumer/static/js/main.fbf93611.chunk.js",
+  "main.js.map": "/video-store-consumer/static/js/main.fbf93611.chunk.js.map",
+  "static/css/1.9c67e995.chunk.css": "/video-store-consumer/static/css/1.9c67e995.chunk.css",
+  "static/js/1.92ded63c.chunk.js": "/video-store-consumer/static/js/1.92ded63c.chunk.js",
+  "static/js/1.92ded63c.chunk.js.map": "/video-store-consumer/static/js/1.92ded63c.chunk.js.map",
+  "runtime~main.js": "/video-store-consumer/static/js/runtime~main.bfa7f193.js",
+  "runtime~main.js.map": "/video-store-consumer/static/js/runtime~main.bfa7f193.js.map",
+  "static/css/main.4efc1fce.chunk.css.map": "/video-store-consumer/static/css/main.4efc1fce.chunk.css.map",
+  "static/css/1.9c67e995.chunk.css.map": "/video-store-consumer/static/css/1.9c67e995.chunk.css.map",
+  "index.html": "/video-store-consumer/index.html",
+  "precache-manifest.badcda9dd3ce8cab66ad7d0465c476b4.js": "/video-store-consumer/precache-manifest.badcda9dd3ce8cab66ad7d0465c476b4.js",
+  "service-worker.js": "/video-store-consumer/service-worker.js"
 }
