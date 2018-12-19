@@ -87,7 +87,7 @@ class AppRouter extends Component {
   render() {
     const page = (
         <section>
-          <Route path="/" exact component={ HomePage } />
+          <Route path="/video-store-consumer/" exact component={ HomePage } />
           <Route path="/search/" component={ props =>
               <SearchPage { ...props }
                 query= { this.state.query }
@@ -114,7 +114,7 @@ class AppRouter extends Component {
             <ul className="router__nav-list">
               <div className="router__nav-navlinks">
                 <li>
-                  <h4><NavLink to="/">Home</NavLink></h4>
+                  <h4><NavLink to="/video-store-consumer/">Home</NavLink></h4>
                 </li>
                 <li>
                   <h4><NavLink to="/library/">Our Movie Store</NavLink></h4>
