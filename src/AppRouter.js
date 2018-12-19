@@ -66,9 +66,6 @@ class AppRouter extends Component {
     // Object.keys(alert)
     const alertType = Object.keys(this.state.alert)[0];
     const alertMessage = Object.values(this.state.alert)[0];
-    console.log('App Router:')
-    console.log(alertType);
-    console.log(alertMessage);
     return (
       <p className={ `router__nav-alerts-${alertType}` }>
         { alertMessage }

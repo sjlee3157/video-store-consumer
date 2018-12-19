@@ -7,7 +7,6 @@ import './styles/Movie.css';
 const Movie = (props) => {
 
   const releaseDate = moment( props.releaseDate ).format('MMM Do, YYYY');
-    console.log(props);
   return (
 
     <div className="card-body">

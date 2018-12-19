@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { withRouter } from "react-router-dom";
 import PropTypes from 'prop-types';
-import './styles/SearchBar.css';
+import './styles/FilterSearchResultsBar.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
-class SearchBar extends Component {
+class FilterSearchResultsBar extends Component {
   constructor() {
     super();
 
@@ -18,25 +17,12 @@ class SearchBar extends Component {
   onFormChange = (e) => {
     const query = e.target.value
     this.setState({ query });
+    this.props.onFilterChangeCallback(query);
+    console.log(`Filter search term: ${query}`)
   }
 
-  onSubmitHandler = async (e) => {
+  onSubmitHandler = (e) => {
     e.preventDefault();
-    const { query } = this.state;
-    if (query === '') return console.log('You must enter a search term :(');
-
-    try {
-      const callbackPath = await this.props.searchTermCallback(query);
-      this.props.history.push(callbackPath); //redirects to link defined in router '/search'
-      this.clearForm();
-    } catch(error) {
-      console.error(error);
-      this.clearForm();
-    }
-  }
-
-  clearForm = () => {
-    this.setState({ query: '' })
   }
 
   render() {
@@ -53,8 +39,7 @@ class SearchBar extends Component {
             className="searchbar__form-input"
             onChange={ this.onFormChange }
             value={ this.state.query }
-            name="query"
-            placeholder="Search movie database by title"
+            placeholder="Filter Search Results"
             size="40"
           />
           <button className="button button-search"
@@ -65,8 +50,8 @@ class SearchBar extends Component {
   }
 }
 
-SearchBar.propTypes = {
-  searchTermCallback: PropTypes.func
+FilterSearchResultsBar.propTypes = {
+  onFilterChangeCallback: PropTypes.func
 };
 
-export default withRouter(SearchBar);
+export default FilterSearchResultsBar;
