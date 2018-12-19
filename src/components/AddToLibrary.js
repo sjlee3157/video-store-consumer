@@ -17,11 +17,11 @@ const AddToLibrary = (props) => {
     axios.post(URL, props)
       .then((response) => {
         console.log(response, props)
-        props.renderAlertCallback({"success":`${props.title} successfully added.`})
+        props.renderAlertCallback({"success": `${props.title} successfully added.`})
         })
       .catch((error) => {
         console.log(error.response.data.errors);
-        props.renderAlertCallback({"failure" :`${error.response.data.errors}`})
+        props.renderAlertCallback({"failure": `${error.response.data.errors}`})
       });
 
   }
