@@ -33,18 +33,23 @@ class SearchBar extends Component {
     }
   }
 
+  clearForm = () => {
+    this.setState({ query: '' })
+  }
+
   render() {
     const searchIcon = <FontAwesomeIcon icon="search" />
     return (
       <section>
         <form onSubmit={ this.onSubmitHandler } autoComplete="off">
           <input
+            onClick={ this.clearForm }
             className="searchbar__form-input"
             onChange={ this.onFormChange }
             value={ this.state.query }
             name="query"
-            placeholder="Search movies database"
-            size="23"
+            placeholder="Search movie database by title"
+            size="40"
           />
           <button className="button button-search"
             type="submit" name="submit">{ searchIcon }</button>

@@ -25,3 +25,7 @@ label {
 .disabled {
   opacity: 0.3;
 }
+
+.disabled:hover {
+  background-color: #F41861;
+}

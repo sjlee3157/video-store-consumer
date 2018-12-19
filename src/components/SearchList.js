@@ -23,7 +23,7 @@ class SearchList extends Component {
         const searchResults = this.state.searchResults
         .map((movie, i) => {
           return (
-            <section key={i}>
+            <div className="card movie-card" key={i}>
               <Movie
                 key={i}
                 externalId={movie.external_id}
@@ -36,7 +36,7 @@ class SearchList extends Component {
               <AddToLibrary {...movie}
                 inventory={5}
                 renderAlertCallback= {this.props.renderAlertCallback} />
-            </section>
+            </div>
 
           )
         })

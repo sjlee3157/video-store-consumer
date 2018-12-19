@@ -1,0 +1,17 @@
+ .movie-card .card-img-top {
+  width: 143px;
+  max-width: 143px;
+}
+
+.movie-card .card-title {
+  margin-bottom: 0;
+}
+
+.movie-card .card-subtitle {
+  margin: 0.3rem 0;
+  text-align: left;
+}
+
+.movie-card .card-body {
+  margin-bottom: 1.3rem;
+}
