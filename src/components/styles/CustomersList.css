@@ -1,0 +1,15 @@
+.customer-table__header-row > th {
+  font-family: 'Gothic A1', sans-serif;
+  font-weight: 100;
+  color: #03cea4;
+}
+
+.customer-table__table {
+  font-family: 'Gothic A1', sans-serif;
+  font-weight: lighter;
+  background-color: #252e36;
+}
+
+.customer-table__table-row:hover {
+  background-color: #34424d;
+}

@@ -1,0 +1,31 @@
+.checkout-form__movie,
+.checkout-form__customer {
+  width: 8rem;
+  max-width: 8rem;
+  display: inline-block;
+  color: #F41861;
+  text-align: center;
+  margin-left: 1rem;
+  padding: 0.2rem;
+  font-family: 'Rubik', sans-serif;
+  font-weight: bold;
+}
+
+.checkout-form__submit {
+  width: 11rem;
+  max-width: 11rem;
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+label {
+  margin: 0;
+}
+
+.disabled {
+  opacity: 0.3;
+}
+
+.disabled:hover {
+  background-color: #F41861;
+}

@@ -1,0 +1,35 @@
+.filter__searchbar-search,
+.filter__searchbar-rentals {
+  background-color: inherit;
+  color: #03cea4;
+  border: none;
+  margin-right: 0.4rem;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -ms-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  text-align: right;
+}
+
+.filter__searchbar-search:focus::placeholder,
+.filter__searchbar-rentals:focus::placeholder {
+  visibility: hidden;
+}
+
+.filter__searchbar-search:hover,
+.filter__searchbar-rentals:hover {
+  opacity: 1;
+}
+
+.filter__searchbar-search::placeholder,
+.filter__searchbar-rentals::placeholder {
+  color: #eac435;
+}
+
+.button-search-filter {
+  /* font-family: 'Varela Round', sans-serif; */
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+}

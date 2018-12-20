@@ -1,0 +1,60 @@
+.router {
+  margin: 2rem 2rem;
+}
+
+.router__nav a {
+  color: #F6F7F8;
+}
+
+.router__nav a:hover {
+  color: #F41861;
+  text-decoration: none;
+}
+
+.router__nav-list {
+  list-style-type: none;
+  display: grid;
+  grid-template-rows: 2fr 2fr 1fr;
+  align-items: center;
+}
+
+.router__nav-navlinks li:last-child {
+  margin-left: auto;
+}
+
+.router__nav-navlinks {
+  grid-row: 1;
+  display: flex;
+  height: 4rem;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.router__nav-navlinks > * {
+  margin: 0 1rem;
+}
+
+.router__nav-checkout {
+  grid-row: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.router__nav-alerts {
+  grid-row: 3;
+}
+
+.router__nav-alerts-success {
+  color: #017C64;
+  font-size: 1.5em;
+}
+
+.router__nav-alerts-failure {
+  color: #FB4D3D;
+  font-size: 1.5em;
+}
+
+.router__nav-alerts-warning {
+  color: #EAC435;
+  font-size: 1.5em;
+}
