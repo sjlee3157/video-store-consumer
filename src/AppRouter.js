@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import './AppRouter.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import HomePage from "./components/HomePage"
 import SearchPage from "./components/SearchPage"
@@ -58,18 +59,28 @@ class AppRouter extends Component {
       selectedMovie: {},
       selectedCustomer: {}
     })
-    console.log('reset checkout form')
-    console.log(this.state.selectedMovie)
   }
 
   displayAlert = () => {
-    // Object.values(alert)
-    // Object.keys(alert)
     const alertType = Object.keys(this.state.alert)[0];
     const alertMessage = Object.values(this.state.alert)[0];
+
+    const alertIcon = () => {
+      if (alertType === "success") {
+        return <FontAwesomeIcon icon="star" />
+      } else if (alertType === "failure"){
+        return <FontAwesomeIcon icon="ban" />
+      } else if (alertType === "warning"){
+        return <FontAwesomeIcon icon="cog" />
+      } else {
+        return ""
+      }
+    }
+
+
     return (
       <p className={ `router__nav-alerts-${alertType}` }>
-        { alertMessage }
+        {alertIcon()}  { alertMessage }
       </p>
     )
   }
@@ -77,7 +88,7 @@ class AppRouter extends Component {
   render() {
     const page = (
         <section>
-          <Route path="/" exact component={ HomePage } />
+          <Route path="/video-store-consumer/" exact component={ HomePage } />
           <Route path="/search/" component={ props =>
               <SearchPage { ...props }
                 query= { this.state.query }
@@ -107,7 +118,7 @@ class AppRouter extends Component {
             <ul className="router__nav-list">
               <div className="router__nav-navlinks">
                 <li>
-                  <h4><NavLink to="/">Home</NavLink></h4>
+                  <h4><NavLink to="/video-store-consumer/">Home</NavLink></h4>
                 </li>
                 <li>
                   <h4><NavLink to="/library/">Our Movie Store</NavLink></h4>

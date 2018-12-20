@@ -21,11 +21,9 @@ class LibraryList extends Component {
   }
 
   render() {
-      console.log("Rendered Movies:", this.state.movies)
       const allMovies = this.state.movies
         .reverse()
         .map((movie, i) => {
-          console.log(movie);
           const releaseDate = moment(movie.release_date).format('MMM Do, YYYY');
           return (
             <div className="card movie-carousel__movie" key={ i }>
@@ -74,7 +72,6 @@ class LibraryList extends Component {
 
         })
         .catch((error) => {
-          console.log(error.message);
           this.setState({
             errorMessage: error.message,
           });
