@@ -10,16 +10,13 @@ div.details-show {
  display: grid;
  margin: 2%;
  padding: 5%;
+ padding-right: 15%;
  grid-gap: 25px;
  border: 3px groove white;
  grid-template-areas:
     "button button title"
     "image image details"
     "image image details";
-}
-
-.button {
-  padding: 0%;
 }
 
 .movie-image {
