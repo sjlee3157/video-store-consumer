@@ -20,6 +20,12 @@ class LibraryList extends Component {
       }
   }
 
+  onImageClick= (movie) => {
+    console.log("I'm in the onImageClick!")
+    console.log(movie)
+    this.props.setCurrentMovieCallback(movie)
+  }
+
   render() {
       const allMovies = this.state.movies
         .reverse()
@@ -37,7 +43,8 @@ class LibraryList extends Component {
                 movie={ movie }
                 selectMovieCallback={ this.props.selectMovieCallback } />
               <img className="card-img-top movie-carousel__movie-image"
-                src={ movie.image_url } alt={ `${ movie.title }`}/>
+                src={ movie.image_url } alt={ `${ movie.title }`} onClick={() => {this.onImageClick(movie)}}/>
+              <button className="button" onClick={() => {this.onImageClick(movie)}}> Film Details </button>
               <div className="card-body">
                 <h3 className="card-title">{ movie.title }</h3>
                 <p className="card-subtitle"><small className="text-muted">Released on: { releaseDate }</small></p>
@@ -85,7 +92,8 @@ class LibraryList extends Component {
 }
 
 LibraryList.propTypes = {
-  selectMovieCallback: PropTypes.func
+  selectMovieCallback: PropTypes.func,
+  setCurrentMovieCallback: PropTypes.func
 }
 
 export default LibraryList;

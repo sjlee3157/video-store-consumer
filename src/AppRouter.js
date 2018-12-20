@@ -7,6 +7,7 @@ import HomePage from "./components/HomePage"
 import SearchPage from "./components/SearchPage"
 import LibraryPage from "./components/LibraryPage"
 import CustomersPage from "./components/CustomersPage"
+import MovieDetails from "./components/MovieDetails"
 
 import SearchBar from "./components/SearchBar"
 import CheckOutForm from './components/CheckOutForm'
@@ -26,7 +27,8 @@ class AppRouter extends Component {
       query: '',
       selectedMovie: {},
       selectedCustomer: {},
-      alert: {}
+      alert: {},
+      currentMovie: undefined
     }
   }
 
@@ -46,6 +48,10 @@ class AppRouter extends Component {
     this.setState({ selectedCustomer })
   }
 
+  resetMovieDetails = () => {
+    console.log("click back!")
+    this.setState({ currentMovie: undefined })
+  }
 
   renderAlert = (message) => {
     console.log("IN RENDER ALERT")
@@ -58,6 +64,12 @@ class AppRouter extends Component {
       selectedMovie: {},
       selectedCustomer: {}
     })
+  }
+
+  setCurrentMovie = (movie) => {
+    console.log("Setting current movie!")
+    this.setState({ currentMovie: movie})
+    console.log(this.state.currentMovie)
   }
 
   displayAlert = () => {
@@ -85,20 +97,29 @@ class AppRouter extends Component {
   }
 
   render() {
+
     const page = (
         <section>
-          <Route path="/video-store-consumer/" exact component={ HomePage } />
+          <Route path="/" exact component={ HomePage } />
           <Route path="/search/" component={ props =>
               <SearchPage { ...props }
                 query= { this.state.query }
                 renderAlertCallback= { this.renderAlert }
               />
           } />
-          <Route path="/library/" component={ props =>
-            <LibraryPage { ...props }
-              selectMovieCallback={ this.selectMovie }
-            />
-          } />
+          <Route path="/library/" component={ props => {
+                    if (this.state.currentMovie === undefined) {
+                      return (<LibraryPage { ...props }
+                        selectMovieCallback={ this.selectMovie }
+                        setCurrentMovieCallback= {this.setCurrentMovie}
+                      />)
+                    } else {
+                      return (<MovieDetails
+                        title={ this.state.currentMovie.title}
+                        resetMovieDetailsCallback= {this.resetMovieDetails }
+                      />)
+                    }
+                  }} />
           <Route path="/customers/" component={ props =>
             <CustomersPage { ...props }
               selectCustomerCallback={ this.selectCustomer }
@@ -114,7 +135,7 @@ class AppRouter extends Component {
             <ul className="router__nav-list">
               <div className="router__nav-navlinks">
                 <li>
-                  <h4><NavLink to="/video-store-consumer/">Home</NavLink></h4>
+                  <h4><NavLink to="/">Home</NavLink></h4>
                 </li>
                 <li>
                   <h4><NavLink to="/library/">Our Movie Store</NavLink></h4>

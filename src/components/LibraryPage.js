@@ -10,13 +10,15 @@ const LibraryPage = (props) => {
       <div>
         <h1>Our Movie Store</h1>
         <LibraryList
-          selectMovieCallback= { props.selectMovieCallback }/>
+          selectMovieCallback= { props.selectMovieCallback }
+          setCurrentMovieCallback= { props.setCurrentMovieCallback} />
       </div>
     )
 }
 
 LibraryPage.propTypes = {
-  selectMovieCallback: PropTypes.func
+  selectMovieCallback: PropTypes.func,
+  setCurrentMovieCallback: PropTypes.func
 }
 
 export default LibraryPage;
