@@ -32,11 +32,6 @@ class LibraryList extends Component {
         .map((movie, i) => {
           const releaseDate = moment(movie.release_date).format('MMM Do, YYYY');
           return (
-            // <MovieCard
-            //   key={ i }
-            //   movie={ movie }
-            //   selectMovieCallback={ this.props.selectMovieCallback }
-            // />
             <div className="card movie-carousel__movie" key={ i }>
               <SelectButton
                 buttonType={ 'selectMovie' }

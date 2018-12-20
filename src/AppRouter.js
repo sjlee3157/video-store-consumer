@@ -8,6 +8,7 @@ import SearchPage from "./components/SearchPage"
 import LibraryPage from "./components/LibraryPage"
 import CustomersPage from "./components/CustomersPage"
 import MovieDetails from "./components/MovieDetails"
+import ReturnsPage from "./components/ReturnsPage"
 
 import SearchBar from "./components/SearchBar"
 import CheckOutForm from './components/CheckOutForm'
@@ -125,6 +126,9 @@ class AppRouter extends Component {
               selectCustomerCallback={ this.selectCustomer }
             />
           } />
+          <Route path="/returns/" component={ props =>
+            <ReturnsPage { ...props } />
+          } />
         </section>
     )
 
@@ -142,6 +146,9 @@ class AppRouter extends Component {
                 </li>
                 <li>
                   <h4><NavLink to="/customers/">Customers</NavLink></h4>
+                </li>
+                <li>
+                  <h4><NavLink to="/returns/">Rental Return</NavLink></h4>
                 </li>
                 <li>
                   <h4><SearchBar searchTermCallback={ this.searchTerm } /></h4>

@@ -25,8 +25,31 @@ class FilterSearchResultsBar extends Component {
     e.preventDefault();
   }
 
+  submitButton = () => {
+    if (this.props.searchType === "searchResults") {
+      return ( <FontAwesomeIcon icon="search" /> )
+    } else if (this.props.searchType === "rentals") {
+      return ('Go!')
+    }
+  }
+
+  placeholder = () => {
+    if (this.props.searchType === "searchResults") {
+      return ('Filter Search Results')
+    } else if (this.props.searchType === "rentals") {
+      return ('Look up rental by title or customer')
+    }
+  }
+
+  cssClass = () => {
+    if (this.props.searchType === "searchResults") {
+      return ("filter__searchbar-search")
+    } else if (this.props.searchType === "rentals") {
+      return ("filter__searchbar-rentals")
+    }
+  }
+
   render() {
-    const searchIcon = <FontAwesomeIcon icon="search" />
     return (
       <section>
         <form onSubmit={ this.onSubmitHandler }
@@ -36,14 +59,14 @@ class FilterSearchResultsBar extends Component {
           spellCheck="false">
           <input
             onClick={ this.clearForm }
-            className="searchbar__form-input"
+            className={ this.cssClass() }
             onChange={ this.onFormChange }
             value={ this.state.query }
-            placeholder="Filter Search Results"
+            placeholder={ this.placeholder() }
             size="40"
           />
-          <button className="button button-search"
-            type="submit" name="submit">{ searchIcon }</button>
+          <button className="button button-search button-search-filter"
+            type="submit" name="submit">{ this.submitButton() }</button>
         </form>
       </section>
     )
@@ -51,7 +74,8 @@ class FilterSearchResultsBar extends Component {
 }
 
 FilterSearchResultsBar.propTypes = {
-  onFilterChangeCallback: PropTypes.func
+  onFilterChangeCallback: PropTypes.func,
+  searchType: PropTypes.string.isRequired
 };
 
 export default FilterSearchResultsBar;

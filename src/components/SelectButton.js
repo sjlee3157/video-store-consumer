@@ -5,8 +5,6 @@ import './styles/SelectButton.css';
 
 const SelectButton = (props) => {
 
-  const label = ( props.movie ? props.movie.title : props.customer.name )
-
   const selectMovieButton = (
     <button className="button" onClick={ () => props.selectMovieCallback(props.movie) }>
       + Add To Rental
@@ -19,10 +17,17 @@ const SelectButton = (props) => {
     </button>
   )
 
+  const selectRentalButton = (
+    <button className="button" onClick={ () => props.checkInCallback(props.rental) }>
+      Check In
+    </button>
+  )
+
   return (
     <div className="button">
     { props.buttonType === "selectMovie" && selectMovieButton }
     { props.buttonType === "selectCustomer" && selectCustomerButton }
+    { props.buttonType === "selectRental" && selectRentalButton }
     </div>
   )
 }
@@ -31,8 +36,10 @@ SelectButton.propTypes = {
   buttonType: PropTypes.string.isRequired,
   movie: PropTypes.object,
   customer: PropTypes.object,
+  rental: PropTypes.object,
   selectMovieCallback: PropTypes.func,
-  selectCustomerCallback: PropTypes.func
+  selectCustomerCallback: PropTypes.func,
+  checkInCallback: PropTypes.func
 }
 
 export default SelectButton;

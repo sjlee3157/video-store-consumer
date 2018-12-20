@@ -37,6 +37,11 @@ class SearchList extends Component {
     const rowCards = row.map((movie, i) => {
       return (
         <div className="search-results__card card movie-card" key={ i }>
+          <AddToLibrary
+            { ...movie }
+            inventory={ 5 }
+            renderAlertCallback= { this.props.renderAlertCallback }
+          />
           <Movie
             key={ i }
             externalId={ movie.external_id }
@@ -45,11 +50,6 @@ class SearchList extends Component {
             overview={ movie.overview }
             releaseDate={ movie.release_date }
             title={ movie.title }
-          />
-          <AddToLibrary
-            { ...movie }
-            inventory={ 5 }
-            renderAlertCallback= { this.props.renderAlertCallback }
           />
         </div>
       )
@@ -63,7 +63,7 @@ class SearchList extends Component {
     const resultsChunkedByRow = _.chunk(this.state.searchResults, 4);
     const searchResults = resultsChunkedByRow.flatMap((row, rowNumber) => {
       return (
-        <div className="card-group" key={ rowNumber }>
+        <div className="card-group search-results__card-group" key={ rowNumber }>
           { this.mapRowToCards(row) }
         </div>
       )
@@ -75,7 +75,8 @@ class SearchList extends Component {
     return (
       <div className="search-results__wrapper">
         <FilterSearchResultsBar
-          onFilterChangeCallback={ this.onFilterChange } />
+          onFilterChangeCallback={ this.onFilterChange }
+          searchType={ 'searchResults' }/>
         { getSearchResults() }
       </div>
     )
