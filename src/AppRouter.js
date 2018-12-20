@@ -119,6 +119,7 @@ class AppRouter extends Component {
                       return (<MovieDetails
                         title={ this.state.currentMovie.title}
                         resetMovieDetailsCallback= {this.resetMovieDetails }
+                        selectMovieCallback={ this.selectMovie }
                       />)
                     }
                   }} />

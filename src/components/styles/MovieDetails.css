@@ -14,9 +14,10 @@ div.details-show {
  grid-gap: 25px;
  border: 3px groove white;
  grid-template-areas:
-    "button button title"
-    "image image details"
-    "image image details";
+    "button button title title"
+    "image image inventory inventory"
+    "image image details details"
+    "image image details details";
 }
 
 .movie-image {
@@ -28,6 +29,7 @@ div.details-show {
 .movie-title {
   grid-area: title;
   margin-left: 15%;
+  display:inline;
 }
 
 .movie-overview {
@@ -44,4 +46,15 @@ div.details-show {
   grid-area: button;
   width: 100%;
 
+}
+
+.details-select-btn {
+  display:inline;
+  float:right;
+  float:clear;
+}
+
+.inventory {
+  grid-area: inventory;
+  margin-left: 15%;
 }
