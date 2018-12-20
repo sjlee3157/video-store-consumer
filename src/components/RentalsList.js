@@ -30,7 +30,8 @@ class RentalsList extends Component {
     axios.post(checkInUrl, params)
       .then((response) => {
           console.log(response);
-          console.log(`Succesfully checked in ${ title }`)
+          console.log(`Succesfully checked in ${ title }`);
+          this.props.refreshCallback();
         })
       .catch((error) => {
         console.log(error.message);
@@ -160,6 +161,7 @@ class RentalsList extends Component {
 }
 
 RentalsList.propTypes = {
+  refreshCallback: PropTypes.func
 }
 
 export default RentalsList;
