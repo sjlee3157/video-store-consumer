@@ -3,14 +3,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles/ReturnsPage.css';
 
-import ReturnRentalsSearchBar from './ReturnRentalsSearchBar';
 import RentalsList from './RentalsList';
 
 const ReturnsPage = () => {
   return (
-    <div>
+    <div className="returns">
       <h1>Rental Return</h1>
-      <ReturnRentalsSearchBar />
       <RentalsList />
     </div>
   )

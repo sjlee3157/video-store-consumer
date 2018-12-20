@@ -75,7 +75,8 @@ class SearchList extends Component {
     return (
       <div className="search-results__wrapper">
         <FilterSearchResultsBar
-          onFilterChangeCallback={ this.onFilterChange } />
+          onFilterChangeCallback={ this.onFilterChange }
+          searchType={ 'searchResults' }/>
         { getSearchResults() }
       </div>
     )

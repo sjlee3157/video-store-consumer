@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import './styles/RentalsList.css';
 
 import SelectButton from './SelectButton';
+import FilterSearchResultsBar from './FilterSearchResultsBar';
 import axios from 'axios';
 
 class RentalsList extends Component {
@@ -67,14 +68,38 @@ class RentalsList extends Component {
     return rentals
   }
 
+  onFilterChange = (query) => {
+    console.log(query);
+    const regex = new RegExp(query, 'i');
+    const overdue = (this.state.masterOverdue).filter((rental) => {
+      const keywords = rental.name + ' ' + rental.title;
+      return regex.test(keywords);
+    });
+    const outOk = (this.state.masterOutOk).filter((rental) => {
+      const keywords = rental.name + ' ' + rental.title;
+      return regex.test(keywords);
+    });
+    const returned = (this.state.masterReturned).filter((rental) => {
+      const keywords = rental.name + ' ' + rental.title;
+      return regex.test(keywords);
+    });
+    this.setState({ overdue,
+                    outOk,
+                    returned
+                  });
+  }
+
   render() {
       return (
-        <div>
+        <div className="rental-returns__wrapper">
+          <FilterSearchResultsBar
+            onFilterChangeCallback={ this.onFilterChange }
+            searchType={ 'rentals' }/>
           <h2>Overdue</h2>
             { this.getRentals('overdue') }
           <h2>Checked Out</h2>
             { this.getRentals('outOk') }
-          <h3>Returned</h3>
+          <h2>Returned</h2>
             { this.getRentals('returned') }
         </div>
       )
