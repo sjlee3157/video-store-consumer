@@ -4,8 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './styles/MovieDetails.css';
 
-
-const URL = "http://localhost:3000/movies/"
+const URL = "https://rails-videostore-api.herokuapp.com/movies/"
 
 class MovieDetails extends Component {
   constructor(props) {

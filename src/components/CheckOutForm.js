@@ -31,7 +31,7 @@ const CheckOutForm = (props) => {
       renderAlertCallback: props.renderAlertCallback
     }
 
-    const checkOutUrl = `http://localhost:3000/rentals/${title}/check-out`
+    const checkOutUrl = `https://rails-videostore-api.herokuapp.com/rentals/${title}/check-out`
 
     axios.post(checkOutUrl, params)
       .then((response) => {

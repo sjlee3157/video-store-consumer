@@ -26,7 +26,8 @@ class RentalsList extends Component {
     // POST /rentals/:title/return
     // Params: { customer_id: customer_id }
     const { title, customer_id, name } = rental;
-    const checkInUrl = `http://localhost:3000/rentals/${ title }/return`;
+    // const checkInUrl = `http://localhost:3000/rentals/${ title }/return`;
+    const checkInUrl = `https://rails-videostore-api.herokuapp.com/rentals/${ title }/return`;
     const params = { customer_id };
     axios.post(checkInUrl, params)
       .then((response) => {
@@ -124,7 +125,8 @@ class RentalsList extends Component {
     console.log('mounting rentals')
     // All rentals = rentals/overdue + rentals/out-ok + rentals/returned
     // Overdue:
-    axios.get('http://localhost:3000/rentals/overdue')
+    // axios.get('http://localhost:3000/rentals/overdue')
+    axios.get('https://rails-videostore-api.herokuapp.com/rentals/overdue')
       .then((response) => {
         const overdue = response.data
         if (this.mounted){
@@ -139,7 +141,8 @@ class RentalsList extends Component {
         this.setState({ errorMessage: error.message });
       });
     // Out-Ok:
-    axios.get('http://localhost:3000/rentals/out-ok')
+    // axios.get('http://localhost:3000/rentals/out-ok')
+    axios.get('https://rails-videostore-api.herokuapp.com/rentals/out-ok')
       .then((response) => {
         const outOk = response.data
         if(this.mounted){
@@ -154,7 +157,8 @@ class RentalsList extends Component {
         this.setState({ errorMessage: error.message });
       });
     // Returned:
-    axios.get('http://localhost:3000/rentals/returned')
+    // axios.get('http://localhost:3000/rentals/returned')
+    axios.get('https://rails-videostore-api.herokuapp.com/rentals/returned')
       .then((response) => {
         const returned = response.data;
         if(this.mounted){

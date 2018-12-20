@@ -4,8 +4,7 @@ import './styles/AddToLibrary.css';
 
 import axios from 'axios';
 
-
-const URL = 'http://localhost:3000/movies'
+const URL = 'https://rails-videostore-api.herokuapp.com/movies'
 
 const AddToLibrary = (props) => {
   // let params = {...props};

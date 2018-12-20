@@ -9,7 +9,7 @@ import axios from 'axios';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 
-const URL = 'http://localhost:3000/movies/'
+const URL = 'https://rails-videostore-api.herokuapp.com/movies'
 
 class LibraryList extends Component {
   constructor() {

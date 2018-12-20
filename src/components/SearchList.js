@@ -10,7 +10,8 @@ import AddToLibrary from './AddToLibrary'
 import FilterSearchResultsBar from './FilterSearchResultsBar'
 
 import axios from 'axios';
-const SEARCH_MOVIES_URL = 'http://localhost:3000/movies?query=';
+// const SEARCH_MOVIES_URL = 'http://localhost:3000/movies?query=';
+const SEARCH_MOVIES_URL = 'https://rails-videostore-api.herokuapp.com/movies?query='
 const DEFAULT_INVENTORY = 5;
 
 class SearchList extends Component {

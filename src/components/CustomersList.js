@@ -6,8 +6,7 @@ import './styles/CustomersList.css';
 import CustomerCard from './CustomerCard';
 import axios from 'axios';
 
-
-const URL = 'http://localhost:3000/customers/'
+const URL = 'https://rails-videostore-api.herokuapp.com/customers'
 
 class CustomersList extends Component {
   constructor() {
