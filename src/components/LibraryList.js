@@ -68,22 +68,24 @@ class LibraryList extends Component {
     }
 
   componentDidMount() {
+    this.mounted = true;
     axios.get(URL)
       .then((response) => {
-        const movieSet = response.data.map((movie) => {
-          const newMovie = { ...movie };
-          return newMovie;
-        })
-
-        this.setState({ movies: movieSet });
-        })
-        .catch((error) => {
-          this.setState({
-            errorMessage: error.message,
-          });
+        const movies = response.data;
+        if (this.mounted){
+          this.setState({ movies });
+        }
+      })
+      .catch((error) => {
+        this.setState({
+          errorMessage: error.message,
         });
+      });
   }
 
+  componentWillUnmount(){
+    this.mounted = false;
+  }
 }
 
 LibraryList.propTypes = {

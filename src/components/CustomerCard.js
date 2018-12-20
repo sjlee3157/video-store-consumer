@@ -12,7 +12,7 @@ const CustomerCard = (props) => {
 
   return (
     <tr className="customer-table__table-row">
-      <td scope="row">{customer.name}</td>
+      <td>{customer.name}</td>
       <td>{customer.account_credit}</td>
       <td>{customer.movies_checked_out_count}</td>
       <td>#</td>

@@ -51,15 +51,12 @@ class CustomersList extends Component {
     }
 
   componentDidMount() {
+    this.mounted = true;
     axios.get(URL)
       .then((response) => {
-        const customerSet = response.data.map((customer) => {
-          const newCustomer = { ...customer };
-          return newCustomer;
-        })
-
-        this.setState({ customers: customerSet });
-
+        if(this.mounted){
+          this.setState({ customers: response.data });
+        }
       })
       .catch((error) => {
         console.log(error.message);
@@ -67,6 +64,10 @@ class CustomersList extends Component {
           errorMessage: error.message,
         });
       });
+  }
+
+  componentWillUnmount(){
+    this.mounted = false;
   }
 }
 

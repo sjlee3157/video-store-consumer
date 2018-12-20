@@ -10,8 +10,7 @@ import AddToLibrary from './AddToLibrary'
 import FilterSearchResultsBar from './FilterSearchResultsBar'
 
 import axios from 'axios';
-const SEARCH_MOVIES_URL = 'http://localhost:3000/movies?query='
-
+const SEARCH_MOVIES_URL = 'http://localhost:3000/movies?query=';
 const DEFAULT_INVENTORY = 5;
 
 class SearchList extends Component {
@@ -34,33 +33,19 @@ class SearchList extends Component {
     this.setState({ searchResults });
   }
 
-  titleFoundInLibrary = (title) => {
-    // what if two titles in the movie library have the exact same title?
-    // is there a validation for this already?
-    // return ( this.props.movies.include?(title) )
-  }
-
-  whichButton = (movie) => {
-    if ( this.titleFoundInLibrary(movie.title) ) {
-      return (
-        <button className="button button-disabled">In Our Store</button>
-      )
-    } else {
-      return (
-        <AddToLibrary
-          { ...movie }
-          inventory={ DEFAULT_INVENTORY }
-          renderAlertCallback= { this.props.renderAlertCallback }
-        />
-      )
-    }
-  }
-
   mapRowToCards = (row) => {
     const rowCards = row.map((movie, i) => {
       return (
         <div className="search-results__card card movie-card" key={ i }>
-          { this.whichButton(movie) }
+          <AddToLibrary
+            title={ movie.title}
+            overview={ movie.overview }
+            release_date={ movie.release_date }
+            inventory={ DEFAULT_INVENTORY }
+            image_url={ movie.image_url }
+            external_id={ movie.external_id }
+            renderAlertCallback= { this.props.renderAlertCallback }
+          />
           <Movie
             key={ i }
             externalId={ movie.external_id }
@@ -87,7 +72,7 @@ class SearchList extends Component {
         </div>
       )
     });
-    console.log(`Successfully Loaded ${ searchResults.length } Search Results`, searchResults)
+    console.log(`Successfully Loaded ${ resultsChunkedByRow.length*4 } Search Results`, searchResults)
     return searchResults
   }
 
@@ -140,8 +125,7 @@ class SearchList extends Component {
 
 SearchList.propTypes = {
   query: PropTypes.string,
-  renderAlertCallback: PropTypes.func,
-  movies: PropTypes.array.isRequired
+  renderAlertCallback: PropTypes.func
 };
 
 export default SearchList;

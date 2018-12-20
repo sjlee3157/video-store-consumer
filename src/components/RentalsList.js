@@ -51,13 +51,12 @@ class RentalsList extends Component {
 
   getRentals = (rentalType) => {
     const rentals = this.state[rentalType]
-      .reverse()
       .map((rental, i) => {
         const dueDate = moment(rental.due_date).format('MMM Do, YYYY');
         const checkoutDate = moment(rental.checkout_date).format('MMM Do, YYYY');
         return (
           <tr className={ `returns__${rentalType}-rental returns__table-row` } key={ i }>
-            <td scope="row">{ rental.title }</td>
+            <td>{ rental.title }</td>
             <td>{ rental.name }</td>
             <td>{ checkoutDate }</td>
             <td>{ dueDate }</td>
@@ -121,19 +120,19 @@ class RentalsList extends Component {
     }
 
   componentDidMount() {
+    this.mounted = true;
     console.log('mounting rentals')
     // All rentals = rentals/overdue + rentals/out-ok + rentals/returned
     // Overdue:
     axios.get('http://localhost:3000/rentals/overdue')
       .then((response) => {
-        const overdue = response.data.map((rental) => {
-          const newRental = { ...rental };
-          return newRental;
-        })
-        this.setState({
-          overdue,
-          masterOverdue: overdue
-        });
+        const overdue = response.data
+        if (this.mounted){
+          this.setState({
+            overdue,
+            masterOverdue: overdue
+          })
+        }
       })
       .catch((error) => {
         console.log(error.message);
@@ -142,14 +141,13 @@ class RentalsList extends Component {
     // Out-Ok:
     axios.get('http://localhost:3000/rentals/out-ok')
       .then((response) => {
-        const outOk = response.data.map((rental) => {
-          const newRental = { ...rental };
-          return newRental;
-        })
-        this.setState({
-          outOk,
-          masterOutOk: outOk
-        });
+        const outOk = response.data
+        if(this.mounted){
+          this.setState({
+            outOk,
+            masterOutOk: outOk
+          });
+        }
       })
       .catch((error) => {
         console.log(error.message);
@@ -158,19 +156,22 @@ class RentalsList extends Component {
     // Returned:
     axios.get('http://localhost:3000/rentals/returned')
       .then((response) => {
-        const returned = response.data.map((rental) => {
-          const newRental = { ...rental };
-          return newRental;
-        })
-        this.setState({
-          returned,
-          masterReturned: returned
-        });
+        const returned = response.data;
+        if(this.mounted){
+          this.setState({
+            returned,
+            masterReturned: returned
+          });
+        }
       })
       .catch((error) => {
         console.log(error.message);
         this.setState({ errorMessage: error.message });
       });
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
   }
 }
 

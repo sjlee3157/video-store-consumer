@@ -12,36 +12,58 @@ const AddToLibrary = (props) => {
   // const string = props.image_url
   // params.image_url = string.substr(string.indexOf("w185") + 4)
   // console.log(params.image_url)
-  const addMovie = (props) => {
-    // console.log("HERE", params)
-    axios.post(URL, props)
+  const addMovie = () => {
+    // console.log("HERE", props)
+    const params = {
+      title: props.title,
+      overview: props.overview,
+      release_date: props.release_date,
+      inventory: props.inventory,
+      image_url: props.image_url,
+      external_id: props.external_id
+    }
+    axios.post(URL, params)
       .then((response) => {
-        console.log(response, props)
-        props.renderAlertCallback({"success": `${props.title} successfully added.`})
+        console.log(response, params)
+        props.renderAlertCallback({"success": `${params.title} successfully added.`})
         })
       .catch((error) => {
         console.log(error.response.data.errors);
         props.renderAlertCallback({"failure": `${error.response.data.errors}`})
       });
-
   }
 
-  const onButtonClick = () => {
-    addMovie(props)
-  }
+  // whichButton = (movie) => {
+  //   if ( this.titleFoundInLibrary(movie.title) ) {
+  //     return (
+  //       <button className="button button-disabled">In Our Store</button>
+  //     )
+  //   } else {
+  //     return (
+  //       <AddToLibrary
+  //         { ...movie }
+  //         inventory={ DEFAULT_INVENTORY }
+  //         renderAlertCallback= { this.props.renderAlertCallback }
+  //       />
+  //     )
+  //   }
+  // }
 
-  return <button className="button add-to-library__button" onClick={onButtonClick}>+ Import Title</button>
+  return (
+    <button className="button add-to-library__button" onClick={ addMovie }>
+      + Add To Our Library
+    </button>
+  )
 
 }
 
 AddToLibrary.propTypes = {
-  id: PropTypes.number,
-  external_id: PropTypes.number,
-  overview: PropTypes.string,
-  image_url: PropTypes.string,
-  title: PropTypes.string,
-  release_date: PropTypes.string,
-  inventory: PropTypes.number,
+  external_id: PropTypes.number.isRequired,
+  overview: PropTypes.string.isRequired,
+  image_url: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  release_date: PropTypes.string.isRequired,
+  inventory: PropTypes.number.isRequired,
   renderAlertCallback: PropTypes.func
 };
 
