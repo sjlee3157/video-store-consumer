@@ -1,0 +1,44 @@
+.returns__table-header {
+  color: #03cea4;
+}
+
+.returns__table-header > th {
+  font-family: 'Gothic A1', sans-serif;
+  font-weight: 100;
+}
+
+.returns__table {
+  font-family: 'Gothic A1', sans-serif;
+  font-weight: lighter;
+}
+
+.returns__table-header-returned {
+  color: #1c7865;
+}
+
+.returns__table-row:hover {
+  background-color: #34424d;
+}
+
+.returns__table {
+  background-color: #252e36;
+}
+
+.returns__table-returned {
+  background-color: #141f29;
+}
+.returns__returned-rental:hover {
+  background-color: #1b2936;
+}
+
+.rental-returns__wrapper > h2 {
+  color: #eac435;
+}
+
+.rental-returns__wrapper > h2.returned {
+  color: #897422;
+}
+
+.returns__table:last-of-type {
+  color: #abafb4;
+}

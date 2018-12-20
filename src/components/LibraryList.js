@@ -76,7 +76,6 @@ class LibraryList extends Component {
         })
 
         this.setState({ movies: movieSet });
-
         })
         .catch((error) => {
           this.setState({
@@ -84,6 +83,7 @@ class LibraryList extends Component {
           });
         });
   }
+
 }
 
 LibraryList.propTypes = {

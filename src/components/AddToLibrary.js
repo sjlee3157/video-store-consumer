@@ -30,7 +30,7 @@ const AddToLibrary = (props) => {
     addMovie(props)
   }
 
-  return <button className="button add-to-library__button" onClick={onButtonClick}>+ Add To Our Library</button>
+  return <button className="button add-to-library__button" onClick={onButtonClick}>+ Import Title</button>
 
 }
 

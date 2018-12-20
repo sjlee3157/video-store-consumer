@@ -29,7 +29,8 @@ class AppRouter extends Component {
       selectedMovie: {},
       selectedCustomer: {},
       alert: {},
-      currentMovie: undefined
+      currentMovie: undefined,
+      movies: []
     }
   }
 
@@ -89,7 +90,6 @@ class AppRouter extends Component {
       }
     }
 
-
     return (
       <p className={ `router__nav-alerts-${alertType}` }>
         {alertIcon()}  { alertMessage }
@@ -106,13 +106,14 @@ class AppRouter extends Component {
               <SearchPage { ...props }
                 query= { this.state.query }
                 renderAlertCallback= { this.renderAlert }
+                movies={ this.state.movies }
               />
           } />
           <Route path="/library/" component={ props => {
                     if (this.state.currentMovie === undefined) {
                       return (<LibraryPage { ...props }
                         selectMovieCallback={ this.selectMovie }
-                        setCurrentMovieCallback= {this.setCurrentMovie}
+                        setCurrentMovieCallback= { this.setCurrentMovie }
                       />)
                     } else {
                       return (<MovieDetails
@@ -176,6 +177,8 @@ class AppRouter extends Component {
       </Router>
     )
   }
+
+
 }
 
 export default AppRouter;

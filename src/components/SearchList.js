@@ -12,6 +12,7 @@ import FilterSearchResultsBar from './FilterSearchResultsBar'
 import axios from 'axios';
 const SEARCH_MOVIES_URL = 'http://localhost:3000/movies?query='
 
+const DEFAULT_INVENTORY = 5;
 
 class SearchList extends Component {
   constructor(props) {
@@ -33,15 +34,33 @@ class SearchList extends Component {
     this.setState({ searchResults });
   }
 
+  titleFoundInLibrary = (title) => {
+    // what if two titles in the movie library have the exact same title?
+    // is there a validation for this already?
+    // return ( this.props.movies.include?(title) )
+  }
+
+  whichButton = (movie) => {
+    if ( this.titleFoundInLibrary(movie.title) ) {
+      return (
+        <button className="button button-disabled">In Our Store</button>
+      )
+    } else {
+      return (
+        <AddToLibrary
+          { ...movie }
+          inventory={ DEFAULT_INVENTORY }
+          renderAlertCallback= { this.props.renderAlertCallback }
+        />
+      )
+    }
+  }
+
   mapRowToCards = (row) => {
     const rowCards = row.map((movie, i) => {
       return (
         <div className="search-results__card card movie-card" key={ i }>
-          <AddToLibrary
-            { ...movie }
-            inventory={ 5 }
-            renderAlertCallback= { this.props.renderAlertCallback }
-          />
+          { this.whichButton(movie) }
           <Movie
             key={ i }
             externalId={ movie.external_id }
@@ -121,7 +140,8 @@ class SearchList extends Component {
 
 SearchList.propTypes = {
   query: PropTypes.string,
-  renderAlertCallback: PropTypes.func
+  renderAlertCallback: PropTypes.func,
+  movies: PropTypes.array.isRequired
 };
 
 export default SearchList;

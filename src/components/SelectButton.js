@@ -2,18 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles/SelectButton.css';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 const SelectButton = (props) => {
 
   const selectMovieButton = (
     <button className="button" onClick={ () => props.selectMovieCallback(props.movie) }>
-      + Add To Rental
+      <FontAwesomeIcon icon="plus" />
     </button>
   )
 
   const selectCustomerButton = (
     <button className="button" onClick={ () => props.selectCustomerCallback(props.customer) }>
-      + Add As Renter
+      <FontAwesomeIcon icon="plus" />
     </button>
   )
 
@@ -24,7 +26,7 @@ const SelectButton = (props) => {
   )
 
   return (
-    <div className="button">
+    <div>
     { props.buttonType === "selectMovie" && selectMovieButton }
     { props.buttonType === "selectCustomer" && selectCustomerButton }
     { props.buttonType === "selectRental" && selectRentalButton }

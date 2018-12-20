@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Table } from 'react-bootstrap';
 import './styles/CustomersList.css';
 
 import CustomerCard from './CustomerCard';
@@ -31,9 +32,20 @@ class CustomersList extends Component {
         })
       return (
         <div>
-          <ul>
-           { allCustomers }
-          </ul>
+          <Table className="table-sm customer-table__table">
+            <thead>
+              <tr className="customer-table__header-row">
+                <th scope="col">Name</th>
+                <th scope="col">Acct Credit</th>
+                <th scope="col">Tot Movies Checked Out</th>
+                <th scope="col">Overdue</th>
+                <th scope="col">+</th>
+              </tr>
+            </thead>
+            <tbody>
+             { allCustomers }
+            </tbody>
+          </Table>
          </div>
       )
     }

@@ -10,8 +10,9 @@ const LibraryPage = (props) => {
       <div>
         <h1>Our Movie Store</h1>
         <LibraryList
-          selectMovieCallback= { props.selectMovieCallback }
-          setCurrentMovieCallback= { props.setCurrentMovieCallback} />
+          selectMovieCallback={ props.selectMovieCallback }
+          setCurrentMovieCallback={ props.setCurrentMovieCallback }
+        />
       </div>
     )
 }
